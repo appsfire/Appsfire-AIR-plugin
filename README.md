@@ -59,7 +59,7 @@ appsfire.afadsdk_setDebugModeEnabled(true);
 // Use of the Ad SDK delegate. This will allow you to listen for specific events related to advertisement (listed below).
 appsfire.afsdk_setUseDelegate(true);
 
-// Tells the SDK to start gettings ads.
+// Tells the SDK to start getting ads.
 appsfire.afadsdk_prepare();
 
 ```
