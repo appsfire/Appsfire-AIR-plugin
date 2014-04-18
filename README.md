@@ -14,7 +14,7 @@ Appsfire iOS SDK support **iOS 5.1.1+**.
 
 After you have set up your app on the [Appsfire Dashboard](http://dashboard.appsfire.com), you are ready to begin integrating the Appsfire SDK into your AIR project.
 
-First, import the Appsfire ANE in your Adobe Air project. We recommend creating a directory in your project for native extensions, and copy `AppsfireANE.ane` and `AppsfireANE.swc` to that directory.  Then, if you are using *Flash Builder*, you can just add that directory as a native extension directory in your project settings.
+First, import the Appsfire ANE in your Adobe Air project. We recommend creating a directory in your project for native extensions, and copy `AppsfireANE.ane` and `AppsfireANE.swc` located in the *bin* folder to that directory.  Then, if you are using *Flash Builder*, you can just add that directory as a native extension directory in your project settings.
 
 Second, make sure you add the `<extensionID>` declaration to your AIR application descriptor's root `<application>` element like in the following example:
 
@@ -400,4 +400,14 @@ public static const AFADSDK_MODAL_AD_WILL_DISAPPEAR : String;
 
 // Fired when a modal as is dismissed.
 public static const AFADSDK_MODAL_AD_DID_DISAPPEAR : String;
+```
+
+### Build script
+
+Should you need to edit the extension source code and/or recompile it, you will find an ant build script `build.xml` in the *build* folder:
+
+```bash
+cd /path/to/the/ane/build
+#edit the build.config file to provide your machine-specific paths
+ant
 ```
