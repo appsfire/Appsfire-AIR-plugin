@@ -1,22 +1,22 @@
 # Adobe Air Native Extension for Appsfire SDK (iOS)
 
-This documentation is a brief introduction to Appsfire SDK for Adobe Air. We recommend you to take a look at the general documentation of the Appsfire [SDK](http://docs.appsfire.com). Most of methods were implemented in the Appsfire ANE. If you have a problem during the integration, don't hesitate to [contact us](mailto:support@appsfire.com).
+This documentation is a brief introduction to the Appsfire SDK for Adobe Air. We recommend you to read the Appsfire documentation [SDK](http://docs.appsfire.com) before jumping into its Adobe Air implementation. Most of the iOS Appsfire SDK methods were implemented in the Appsfire ANE. If you have any problem during the integration, don't hesitate to [contact us](mailto:support@appsfire.com).
 
-**Note** : The Appsfire ANE only support the iOS platform.
+**Note**: the Appsfire ANE only supports the iOS platform.
 
 ### Appsfire SDK
 This ANE includes the [**version 2.2.2**](https://github.com/appsfire/Appsfire-iOS-SDK/releases/tag/2.2.2) release of the Appsfire iOS SDK.
 
 ### Requirements
-Appsfire iOS SDK support **iOS 5.1.1+**.
+Appsfire iOS SDK supports **iOS 5.1.1+**.
 
 ### Getting Started
 
 After you have set up your app on the [Appsfire Dashboard](http://dashboard.appsfire.com), you are ready to begin integrating the Appsfire SDK into your AIR project.
 
-First, import the Appsfire ANE in your Adobe Air project. We recommend creating a directory in your project for native extensions, and copy `AppsfireANE.ane` and `AppsfireANE.swc` located in the *bin* folder to that directory.  Then, if you are using *Flash Builder*, you can just add that directory as a native extension directory in your project settings.
+First, import the Appsfire ANE in your Adobe Air project. We recommend to create a directory in your project for native extensions, and copy `AppsfireANE.ane` and `AppsfireANE.swc` located in the *bin* folder to that directory. Then, if you are using *Flash Builder*, you can just add that directory as a native extension directory in your project settings.
 
-Second, make sure you add the `<extensionID>` declaration to your AIR application descriptor's root `<application>` element like in the following example:
+Second, make sure you add the `<extensionID>` declaration to your AIR application descriptor's root `<application>` element as shown in the following example:
 
 ```xml
 <extensions>
@@ -24,39 +24,40 @@ Second, make sure you add the `<extensionID>` declaration to your AIR applicatio
 </extensions>
 ```
 
-### Usage
+### How to use the Adobe Air Native Extension
 
 ##### Appsfire SDK Setup
 
-First, import the Appsfire ANE classes into your code.
+First, import the two Appsfire ANE classes into your code.
 
 ```actionscript
 import com.appsfire.AppsfireANE.Appsfire;
 import com.appsfire.AppsfireANE.AppsfireEvent;
 ```
 
-We recommend making a variable in your class to store a reference to the global Appsfire instance.
+We recommend to create a variable in your class to store a reference to the global Appsfire instance.
 
 ```actionscript
 private var appsfire:Appsfire;
 appsfire = Appsfire.getInstance();
 ```
 
-To initialize Appsfire, call the `afsdk_connectWithAPIKey` method with your API token from the [Appsfire dashboard](http://dashboard.appsfire.com).
+To initialize Appsfire, call the `afsdk_connectWithAPIKey` method with your API token.
+This API token can be found in your [Appsfire dashboard](http://dashboard.appsfire.com).
 
-Here is a typical initialization of the SDK in your application:
+Here is how a typical initialization of the SDK looks like in an application:
 
 ```actionscript
 // Connects with API Key.
 appsfire.afsdk_connectWithAPIKey("YOUR_API_TOKEN");
 
-// Sets the needed features. (Engage + Monetization).
+// Sets the needed features (in this case: Engage + Monetization).
 appsfire.afsdk_setFeatures(true, true, false);
 
 // Enable the debug mode. Should be set to false in production environment.
 appsfire.afadsdk_setDebugModeEnabled(true);
 
-// Use of the Ad SDK delegate. This will allow you to listen for specific events related to advertisement (listed below).
+// Use of the Ad SDK delegate. This will allow you to listen to specific events related to advertisement (events are listed below).
 appsfire.afsdk_setUseDelegate(true);
 
 // Tells the SDK to start getting ads.
@@ -65,7 +66,7 @@ appsfire.afadsdk_prepare();
 ```
 
 ##### Appsfire methods
-**Note**: Calling these methods on Android will do nothing.
+**Note**: calling these methods on Android will do nothing.
 
 All the methods listed below are extracted from the `Appsfire.as` class.
 
@@ -77,15 +78,15 @@ All the methods listed below are extracted from the `Appsfire.as` class.
  *
  *  @param key Your API key can be found on http://dashboard.appsfire.com
  *
- *  @return `true` if no error was detected, `false` if a problem occurred (likely due to the key).
+ *  @return `true` if no error was detected, `false` if a problem occurred (likely due to the API key).
  */
 public function afsdk_connectWithAPIKey(apiKey : String) : Boolean;
 
 /*
- *  @brief Set up the Appsfire SDK with your API key after some time interval
+ *  @brief Set up the Appsfire SDK with your API key after a given time interval
  *
  *  @param key Your API key can be found on http://dashboard.appsfire.com/app/manage
- *  @param delay The Delay in seconds before the sdk should initialize.
+ *  @param delay The Delay in seconds before the SDK should initialize.
  *  This is useful if you want to avoid any processes for some period of time.
  *
  *  @return `true` if no error was detected, `false` if a problem occurred (likely due to the key).
@@ -95,10 +96,11 @@ public function afsdk_connectWithAPIKeyAndDelay(apiKey : String; delay : Number 
 /*
  *  @brief Define the features you want to use in Appsfire SDK.
  *
- *  @note Defining this property will allow us to avoid unnecessary library process and web-services calls.
- *  For example, if you only use the Monetization SDK (AppsfireAdSDK), then you could set `AFSDKFeatureMonetization`.
+ *  @note Defining this property will allow us to avoid unnecessary library processes and web-services calls.
+ *  For example, if you only use the Monetization SDK (AppsfireAdSDK), then you set `AFSDKFeatureMonetization`.
  *
- *  @warning Don't touch this property if you aren't 100% sure about what you're doing.
+ *  @warning Don't touch this property if you aren't 100% sure about what you're doing. Check the Appsfire iOS SDK
+ *  documentation if you need more information
  *
  *  @param isEngageEnabled if you are Engagement features.
  *  @param isMonetizationEnabled if you are Monetization features.
@@ -363,7 +365,7 @@ public function afadsdk_setUseDelegate(shouldUseDelegate : Boolean = true) : voi
 
 ##### Listening to Appsfire Events
 
-Appsfire fires a number of events upon activation of the delegate methods `afsdk_setUseDelegate` and `afadsdk_setUseDelegate`.  
+Appsfire fires a number of events upon activation of the delegate methods `afsdk_setUseDelegate` and `afadsdk_setUseDelegate`.
 
 Here is an example of how you would listen to them:
 ```actionscript
@@ -374,7 +376,7 @@ function onModalAdDidAppear( event:AppsfireEvent ):void {
 }
 ```
 
-Here is the complete list of the events that can be listened:
+Here is the complete list of you can listen to:
 
 ```actionscript
 // Fired when opening a specific notification.
