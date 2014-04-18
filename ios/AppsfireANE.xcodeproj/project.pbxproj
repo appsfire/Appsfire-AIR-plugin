@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B63C06218EDA0A700742F0C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B246EC018EAF8FD004876C4 /* Accelerate.framework */; };
+		7B63C06318EDA0AE00742F0C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B246EC818EAF91C004876C4 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7B63C06418EDA0B700742F0C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B246ECA18EAF924004876C4 /* SystemConfiguration.framework */; };
+		7B63C06518EDA0C400742F0C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B246EC418EAF911004876C4 /* QuartzCore.framework */; };
+		7B63C06618EDA0CE00742F0C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B246EBE18EAF8D5004876C4 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7B63C06718EDA0D400742F0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B66933F18E1CA0900EAD73B /* Foundation.framework */; };
+		7B63C06818EDA0DE00742F0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B246ECC18EAF929004876C4 /* UIKit.framework */; };
+		7B63C06918EDA0E300742F0C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B246EC618EAF917004876C4 /* Security.framework */; };
+		7B63C06A18EDA0E900742F0C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B246EC218EAF904004876C4 /* CoreGraphics.framework */; };
+		7B66934718E1CA0900EAD73B /* AppsfireANE.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B66934618E1CA0900EAD73B /* AppsfireANE.m */; };
+		7B66936818E1CDC500EAD73B /* AFANEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B66936718E1CDC500EAD73B /* AFANEUtils.m */; };
+		7B7D720B18FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D720A18FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.m */; };
+		7B8D570118EC3C6A00A702FB /* libAppsfireSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9ADA2D18E2E8C7008028E4 /* libAppsfireSDK.a */; };
+		7B98408E1901498E00B1FEBC /* AppsfireSDKDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B98408D1901498E00B1FEBC /* AppsfireSDKDelegate.m */; };
+		7BC810EF18FED5D500A74BC3 /* AppsfireAdTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC810EE18FED5D500A74BC3 /* AppsfireAdTimerView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7B66933A18E1CA0900EAD73B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7B246EBE18EAF8D5004876C4 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		7B246EC018EAF8FD004876C4 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		7B246EC218EAF904004876C4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7B246EC418EAF911004876C4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7B246EC618EAF917004876C4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7B246EC818EAF91C004876C4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7B246ECA18EAF924004876C4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7B246ECC18EAF929004876C4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7B66933C18E1CA0900EAD73B /* libAppsfireANE.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAppsfireANE.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B66933F18E1CA0900EAD73B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7B66934318E1CA0900EAD73B /* AppsfireANE-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppsfireANE-Prefix.pch"; sourceTree = "<group>"; };
+		7B66934618E1CA0900EAD73B /* AppsfireANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppsfireANE.m; sourceTree = "<group>"; };
+		7B66934D18E1CA0900EAD73B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		7B66935018E1CA0900EAD73B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		7B66935718E1CA0900EAD73B /* AppsfireANETests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppsfireANETests-Info.plist"; sourceTree = "<group>"; };
+		7B66935918E1CA0900EAD73B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7B66935B18E1CA0900EAD73B /* AppsfireANETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppsfireANETests.m; sourceTree = "<group>"; };
+		7B66936518E1CA8400EAD73B /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+		7B66936618E1CDC500EAD73B /* AFANEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFANEUtils.h; sourceTree = "<group>"; };
+		7B66936718E1CDC500EAD73B /* AFANEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFANEUtils.m; sourceTree = "<group>"; };
+		7B7D720918FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireAdSDKDelegate.h; sourceTree = "<group>"; };
+		7B7D720A18FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsfireAdSDKDelegate.m; sourceTree = "<group>"; };
+		7B7D720C19001D5A004EB0B5 /* AppsfireSDK+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppsfireSDK+Additions.h"; sourceTree = "<group>"; };
+		7B93CC7D18E496A900EAA154 /* AppsfireANE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireANE.h; sourceTree = "<group>"; };
+		7B98408C1901498E00B1FEBC /* AppsfireSDKDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireSDKDelegate.h; sourceTree = "<group>"; };
+		7B98408D1901498E00B1FEBC /* AppsfireSDKDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsfireSDKDelegate.m; sourceTree = "<group>"; };
+		7B9ADA2A18E2E8C7008028E4 /* AppsfireAdSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireAdSDK.h; sourceTree = "<group>"; };
+		7B9ADA2B18E2E8C7008028E4 /* AppsfireSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireSDK.h; sourceTree = "<group>"; };
+		7B9ADA2C18E2E8C7008028E4 /* AppsfireSDKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireSDKConstants.h; sourceTree = "<group>"; };
+		7B9ADA2D18E2E8C7008028E4 /* libAppsfireSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppsfireSDK.a; sourceTree = "<group>"; };
+		7BC810ED18FED5D500A74BC3 /* AppsfireAdTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireAdTimerView.h; sourceTree = "<group>"; };
+		7BC810EE18FED5D500A74BC3 /* AppsfireAdTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsfireAdTimerView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B66933918E1CA0900EAD73B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B63C06A18EDA0E900742F0C /* CoreGraphics.framework in Frameworks */,
+				7B63C06918EDA0E300742F0C /* Security.framework in Frameworks */,
+				7B63C06818EDA0DE00742F0C /* UIKit.framework in Frameworks */,
+				7B63C06718EDA0D400742F0C /* Foundation.framework in Frameworks */,
+				7B63C06618EDA0CE00742F0C /* AdSupport.framework in Frameworks */,
+				7B63C06518EDA0C400742F0C /* QuartzCore.framework in Frameworks */,
+				7B63C06318EDA0AE00742F0C /* StoreKit.framework in Frameworks */,
+				7B63C06418EDA0B700742F0C /* SystemConfiguration.framework in Frameworks */,
+				7B63C06218EDA0A700742F0C /* Accelerate.framework in Frameworks */,
+				7B8D570118EC3C6A00A702FB /* libAppsfireSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B66933318E1CA0900EAD73B = {
+			isa = PBXGroup;
+			children = (
+				7B66934118E1CA0900EAD73B /* AppsfireANE */,
+				7B66935518E1CA0900EAD73B /* AppsfireANETests */,
+				7B66933E18E1CA0900EAD73B /* Frameworks */,
+				7B66933D18E1CA0900EAD73B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B66933D18E1CA0900EAD73B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B66933C18E1CA0900EAD73B /* libAppsfireANE.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B66933E18E1CA0900EAD73B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B246ECC18EAF929004876C4 /* UIKit.framework */,
+				7B246ECA18EAF924004876C4 /* SystemConfiguration.framework */,
+				7B246EC818EAF91C004876C4 /* StoreKit.framework */,
+				7B246EC618EAF917004876C4 /* Security.framework */,
+				7B246EC418EAF911004876C4 /* QuartzCore.framework */,
+				7B246EC218EAF904004876C4 /* CoreGraphics.framework */,
+				7B246EC018EAF8FD004876C4 /* Accelerate.framework */,
+				7B246EBE18EAF8D5004876C4 /* AdSupport.framework */,
+				7B66933F18E1CA0900EAD73B /* Foundation.framework */,
+				7B66934D18E1CA0900EAD73B /* XCTest.framework */,
+				7B66935018E1CA0900EAD73B /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7B66934118E1CA0900EAD73B /* AppsfireANE */ = {
+			isa = PBXGroup;
+			children = (
+				7B66936618E1CDC500EAD73B /* AFANEUtils.h */,
+				7B66936718E1CDC500EAD73B /* AFANEUtils.m */,
+				7B7D720918FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.h */,
+				7B7D720A18FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.m */,
+				7B93CC7D18E496A900EAA154 /* AppsfireANE.h */,
+				7B66934618E1CA0900EAD73B /* AppsfireANE.m */,
+				7B98408C1901498E00B1FEBC /* AppsfireSDKDelegate.h */,
+				7B98408D1901498E00B1FEBC /* AppsfireSDKDelegate.m */,
+				7B66936518E1CA8400EAD73B /* FlashRuntimeExtensions.h */,
+				7B66934218E1CA0900EAD73B /* Supporting Files */,
+				7B9ADA2818E2E8C7008028E4 /* Vendor */,
+			);
+			path = AppsfireANE;
+			sourceTree = "<group>";
+		};
+		7B66934218E1CA0900EAD73B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B66934318E1CA0900EAD73B /* AppsfireANE-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B66935518E1CA0900EAD73B /* AppsfireANETests */ = {
+			isa = PBXGroup;
+			children = (
+				7B66935B18E1CA0900EAD73B /* AppsfireANETests.m */,
+				7B66935618E1CA0900EAD73B /* Supporting Files */,
+			);
+			path = AppsfireANETests;
+			sourceTree = "<group>";
+		};
+		7B66935618E1CA0900EAD73B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B66935718E1CA0900EAD73B /* AppsfireANETests-Info.plist */,
+				7B66935818E1CA0900EAD73B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B9ADA2818E2E8C7008028E4 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				7BC810EC18FED5D500A74BC3 /* AppsfireAdTimerView */,
+				7B9ADA2918E2E8C7008028E4 /* AppsfireSDK */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		7B9ADA2918E2E8C7008028E4 /* AppsfireSDK */ = {
+			isa = PBXGroup;
+			children = (
+				7B9ADA2A18E2E8C7008028E4 /* AppsfireAdSDK.h */,
+				7B7D720C19001D5A004EB0B5 /* AppsfireSDK+Additions.h */,
+				7B9ADA2B18E2E8C7008028E4 /* AppsfireSDK.h */,
+				7B9ADA2C18E2E8C7008028E4 /* AppsfireSDKConstants.h */,
+				7B9ADA2D18E2E8C7008028E4 /* libAppsfireSDK.a */,
+			);
+			path = AppsfireSDK;
+			sourceTree = "<group>";
+		};
+		7BC810EC18FED5D500A74BC3 /* AppsfireAdTimerView */ = {
+			isa = PBXGroup;
+			children = (
+				7BC810ED18FED5D500A74BC3 /* AppsfireAdTimerView.h */,
+				7BC810EE18FED5D500A74BC3 /* AppsfireAdTimerView.m */,
+			);
+			path = AppsfireAdTimerView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B66933B18E1CA0900EAD73B /* AppsfireANE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B66935F18E1CA0900EAD73B /* Build configuration list for PBXNativeTarget "AppsfireANE" */;
+			buildPhases = (
+				7B66933818E1CA0900EAD73B /* Sources */,
+				7B66933918E1CA0900EAD73B /* Frameworks */,
+				7B66933A18E1CA0900EAD73B /* CopyFiles */,
+				7B63C06118EDA08000742F0C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppsfireANE;
+			productName = AppsfireANE;
+			productReference = 7B66933C18E1CA0900EAD73B /* libAppsfireANE.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B66933418E1CA0900EAD73B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AF;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Appsfire;
+			};
+			buildConfigurationList = 7B66933718E1CA0900EAD73B /* Build configuration list for PBXProject "AppsfireANE" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7B66933318E1CA0900EAD73B;
+			productRefGroup = 7B66933D18E1CA0900EAD73B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B66933B18E1CA0900EAD73B /* AppsfireANE */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7B63C06118EDA08000742F0C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "##########################################\n#\n# c.f. http://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4\n#\n# Version 2.7\n#\n# Latest Change:\n# - Supports iPhone 5 / iPod Touch 5 (uses Apple's workaround to lipo bug)\n#\n# Purpose:\n#   Automatically create a Universal static library for iPhone + iPad + iPhone Simulator from within XCode\n#\n# Author: Adam Martin - http://twitter.com/redglassesapps\n# Based on: original script from Eonil (main changes: Eonil's script WILL NOT WORK in Xcode GUI - it WILL CRASH YOUR COMPUTER)\n#\n\nset -e\nset -o pipefail\n\n#################[ Tests: helps workaround any future bugs in Xcode ]########\n#\nDEBUG_THIS_SCRIPT=\"false\"\n\nif [ $DEBUG_THIS_SCRIPT = \"true\" ]\nthen\necho \"########### TESTS #############\"\necho \"Use the following variables when debugging this script; note that they may change on recursions\"\necho \"BUILD_DIR = $BUILD_DIR\"\necho \"BUILD_ROOT = $BUILD_ROOT\"\necho \"CONFIGURATION_BUILD_DIR = $CONFIGURATION_BUILD_DIR\"\necho \"BUILT_PRODUCTS_DIR = $BUILT_PRODUCTS_DIR\"\necho \"CONFIGURATION_TEMP_DIR = $CONFIGURATION_TEMP_DIR\"\necho \"TARGET_BUILD_DIR = $TARGET_BUILD_DIR\"\nfi\n\n#####################[ part 1 ]##################\n# First, work out the BASESDK version number (NB: Apple ought to report this, but they hide it)\n#    (incidental: searching for substrings in sh is a nightmare! Sob)\n\nSDK_VERSION=$(echo ${SDK_NAME} | grep -o '.\\{3\\}$')\n\n# Next, work out if we're in SIM or DEVICE\n\nif [ ${PLATFORM_NAME} = \"iphonesimulator\" ]\nthen\nOTHER_SDK_TO_BUILD=iphoneos${SDK_VERSION}\nelse\nOTHER_SDK_TO_BUILD=iphonesimulator${SDK_VERSION}\nfi\n\necho \"XCode has selected SDK: ${PLATFORM_NAME} with version: ${SDK_VERSION} (although back-targetting: ${IPHONEOS_DEPLOYMENT_TARGET})\"\necho \"...therefore, OTHER_SDK_TO_BUILD = ${OTHER_SDK_TO_BUILD}\"\n#\n#####################[ end of part 1 ]##################\n\n#####################[ part 2 ]##################\n#\n# IF this is the original invocation, invoke WHATEVER other builds are required\n#\n# Xcode is already building ONE target...\n#\n# ...but this is a LIBRARY, so Apple is wrong to set it to build just one.\n# ...we need to build ALL targets\n# ...we MUST NOT re-build the target that is ALREADY being built: Xcode WILL CRASH YOUR COMPUTER if you try this (infinite recursion!)\n#\n#\n# So: build ONLY the missing platforms/configurations.\n\nif [ \"true\" == ${ALREADYINVOKED:-false} ]\nthen\necho \"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse\"\nelse\n# CRITICAL:\n# Prevent infinite recursion (Xcode sucks)\nexport ALREADYINVOKED=\"true\"\n\necho \"RECURSION: I am the root ... recursing all missing build targets NOW...\"\necho \"RECURSION: ...about to invoke: xcodebuild -configuration \\\"${CONFIGURATION}\\\" -project \\\"${PROJECT_NAME}.xcodeproj\\\" -target \\\"${TARGET_NAME}\\\" -sdk \\\"${OTHER_SDK_TO_BUILD}\\\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO\" BUILD_DIR=\\\"${BUILD_DIR}\\\" BUILD_ROOT=\\\"${BUILD_ROOT}\\\" SYMROOT=\\\"${SYMROOT}\\\"\n\nxcodebuild -configuration \"${CONFIGURATION}\" -project \"${PROJECT_NAME}.xcodeproj\" -target \"${TARGET_NAME}\" -sdk \"${OTHER_SDK_TO_BUILD}\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\"\n\nACTION=\"build\"\n\n#Merge all platform binaries as a fat binary for each configurations.\n\n# Calculate where the (multiple) built files are coming from:\nCURRENTCONFIG_DEVICE_DIR=${SYMROOT}/${CONFIGURATION}-iphoneos\nCURRENTCONFIG_SIMULATOR_DIR=${SYMROOT}/${CONFIGURATION}-iphonesimulator\n\necho \"Taking device build from: ${CURRENTCONFIG_DEVICE_DIR}\"\necho \"Taking simulator build from: ${CURRENTCONFIG_SIMULATOR_DIR}\"\n\nCREATING_UNIVERSAL_DIR=${SYMROOT}/${CONFIGURATION}-universal\necho \"...I will output a universal build to: ${CREATING_UNIVERSAL_DIR}\"\n\n# ... remove the products of previous runs of this script\n#      NB: this directory is ONLY created by this script - it should be safe to delete!\n\nrm -rf \"${CREATING_UNIVERSAL_DIR}\"\nmkdir \"${CREATING_UNIVERSAL_DIR}\"\n\n#\necho \"lipo: for current configuration (${CONFIGURATION}) creating output file: ${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\"\nxcrun -sdk iphoneos lipo -create -output \"${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_DEVICE_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_SIMULATOR_DIR}/${EXECUTABLE_NAME}\"\n\n#########\n#\n# Added: StackOverflow suggestion to also copy \"include\" files\n#    (untested, but should work OK)\n#\necho \"Fetching headers from ${PUBLIC_HEADERS_FOLDER_PATH}\"\necho \"  (if you embed your library project in another project, you will need to add\"\necho \"   a \"User Search Headers\" build setting of: (NB INCLUDE THE DOUBLE QUOTES BELOW!)\"\necho '        \"$(TARGET_BUILD_DIR)/usr/local/include/\"'\nif [ -d \"${CURRENTCONFIG_DEVICE_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\" ]\nthen\nmkdir -p \"${CREATING_UNIVERSAL_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\"\n# * needs to be outside the double quotes?\ncp -r \"${CURRENTCONFIG_DEVICE_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\"* \"${CREATING_UNIVERSAL_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\"\nfi\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B66933818E1CA0900EAD73B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B66934718E1CA0900EAD73B /* AppsfireANE.m in Sources */,
+				7B98408E1901498E00B1FEBC /* AppsfireSDKDelegate.m in Sources */,
+				7B66936818E1CDC500EAD73B /* AFANEUtils.m in Sources */,
+				7BC810EF18FED5D500A74BC3 /* AppsfireAdTimerView.m in Sources */,
+				7B7D720B18FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7B66935818E1CA0900EAD73B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B66935918E1CA0900EAD73B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7B66935D18E1CA0900EAD73B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7s armv7";
+			};
+			name = Debug;
+		};
+		7B66935E18E1CA0900EAD73B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7s armv7";
+			};
+			name = Release;
+		};
+		7B66936018E1CA0900EAD73B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AppsfireANE.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AppsfireANE/AppsfireANE-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppsfireANE/Vendor/AppsfireSDK",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv7s arm64 i386 x86_64";
+			};
+			name = Debug;
+		};
+		7B66936118E1CA0900EAD73B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AppsfireANE.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AppsfireANE/AppsfireANE-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppsfireANE/Vendor/AppsfireSDK",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 armv7s arm64 i386 x86_64";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B66933718E1CA0900EAD73B /* Build configuration list for PBXProject "AppsfireANE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B66935D18E1CA0900EAD73B /* Debug */,
+				7B66935E18E1CA0900EAD73B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B66935F18E1CA0900EAD73B /* Build configuration list for PBXNativeTarget "AppsfireANE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B66936018E1CA0900EAD73B /* Debug */,
+				7B66936118E1CA0900EAD73B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B66933418E1CA0900EAD73B /* Project object */;
+}
