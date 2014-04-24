@@ -1,7 +1,7 @@
 /*!
  *  @header    AppsfireAdSDK+Additions.h
  *  @abstract  Appsfire Advertising SDK Additions Header
- *  @version   2.2.0
+ *  @version   2.3.0
  */
 
 #import "AppsfireSDK.h"
