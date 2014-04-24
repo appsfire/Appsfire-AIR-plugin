@@ -5,7 +5,7 @@ This documentation is a brief introduction to the Appsfire SDK for Adobe Air. We
 **Note**: the Appsfire ANE only supports the iOS platform.
 
 ### Appsfire SDK
-This ANE includes the [**version 2.2.2**](https://github.com/appsfire/Appsfire-iOS-SDK/releases/tag/2.2.2) release of the Appsfire iOS SDK.
+This ANE includes the [**version 2.3.0**](https://github.com/appsfire/Appsfire-iOS-SDK/releases/tag/2.3.0) release of the Appsfire iOS SDK.
 
 ### Requirements
 Appsfire iOS SDK supports **iOS 5.1.1+**.
