@@ -18,12 +18,12 @@ void AFANE_DispatchEvent(FREContext context, NSString *eventName);
 void AFANE_DispatchEventWithInfo(FREContext context, NSString *eventName, NSString *eventInfo);
 void AFANE_Log(FREContext context, NSString *message);
 
-NSString * AFANE_FREObjectToNSString(FREObject object);
+NSString *AFANE_FREObjectToNSString(FREObject object);
 BOOL AFANE_FREObjectToBoolean(FREObject object);
-NSArray * AFANE_FREObjectToNSArrayOfNSString(FREObject object);
-NSDictionary * AFANE_FREObjectsToNSDictionaryOfNSString(FREObject keys, FREObject values);
+NSArray *AFANE_FREObjectToNSArrayOfNSString(FREObject object);
+NSDictionary *AFANE_FREObjectsToNSDictionaryOfNSString(FREObject keys, FREObject values);
 
 FREObject AFANE_NSUIntegerToFREObject(uint32_t integer);
 FREObject AFANE_BOOLToFREObject(BOOL boolean);
 FREObject AFANE_NSStringToFREObject(NSString *string);
-UIColor * colorFromHexString(NSString *hexString);
+UIColor *colorFromHexString(NSString *hexString);

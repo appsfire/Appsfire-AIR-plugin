@@ -1,33 +1,26 @@
 package com.appsfire.AppsfireANE {
 	internal class AppsfireMethods {
 		
-		// Appsfire SDK.
-		internal static const afsdk_connectWithAPIKey : String = "afsdk_connectWithAPIKey";
-		internal static const afsdk_connectWithAPIKeyAndDelay : String = "afsdk_connectWithAPIKeyAndDelay";
-		internal static const afsdk_setFeatures : String = "afsdk_setFeatures";
+		// Appsfire SDK
+		internal static const afsdk_connectWithParameters : String = "afsdk_connectWithParameters";
 		internal static const afsdk_isInitialized : String = "afsdk_isInitialized";
-		internal static const afsdk_pause : String = "afsdk_pause";
-		internal static const afsdk_resume : String = "afsdk_resume";
-		internal static const afsdk_registerPushTokenString : String = "afsdk_registerPushTokenString";
-		internal static const afsdk_handleBadgeCountLocally : String = "afsdk_handleBadgeCountLocally";
-		internal static const afsdk_handleBadgeCountLocallyAndRemotely : String = "afsdk_handleBadgeCountLocallyAndRemotely";
-		internal static const afsdk_presentPanel : String = "afsdk_presentPanel";
-		internal static const afsdk_dismissPanel : String = "afsdk_dismissPanel";
-		internal static const afsdk_isDisplayed : String = "afsdk_isDisplayed";
-		internal static const afsdk_openSDKNotificationID : String = "afsdk_openSDKNotificationID";
-		internal static const afsdk_setColors : String = "afsdk_setColors";
-		internal static const afsdk_setUserEmail : String = "afsdk_setUserEmail";
-		internal static const afsdk_setShowFeedbackButton : String = "afsdk_setShowFeedbackButton";
-		internal static const afsdk_getAFSDKVersionInfo : String = "afsdk_getAFSDKVersionInfo";
-		internal static const afsdk_numberOfPendingNotifications : String = "afsdk_numberOfPendingNotifications";
-		internal static const afsdk_getSessionID : String = "afsdk_getSessionID";
-		internal static const afsdk_resetCache : String = "afsdk_resetCache";
-		internal static const afsdk_setUseDelegate : String = "afsdk_setUseDelegate";
-
+		internal static const afsdk_versionDescription : String = "afsdk_versionDescription";
 		
-		// Appsfire Ad SDK.
-		internal static const afadsdk_prepare : String = "afadsdk_prepare";
-		internal static const afadsdk_isInitialized : String = "afadsdk_isInitialized";
+		// Appsfire Engage SDK
+		internal static const afesdk_registerPushTokenString : String = "afesdk_registerPushTokenString";
+		internal static const afesdk_handleBadgeCountLocally : String = "afesdk_handleBadgeCountLocally";
+		internal static const afesdk_handleBadgeCountLocallyAndRemotely : String = "afesdk_handleBadgeCountLocallyAndRemotely";
+		internal static const afesdk_presentPanel : String = "afesdk_presentPanel";
+		internal static const afesdk_dismissPanel : String = "afesdk_dismissPanel";
+		internal static const afesdk_isDisplayed : String = "afesdk_isDisplayed";
+		internal static const afesdk_openSDKNotificationID : String = "afesdk_openSDKNotificationID";
+		internal static const afesdk_setColors : String = "afesdk_setColors";
+		internal static const afesdk_setUserEmail : String = "afesdk_setUserEmail";
+		internal static const afesdk_setShowFeedbackButton : String = "afesdk_setShowFeedbackButton";
+		internal static const afesdk_numberOfPendingNotifications : String = "afesdk_numberOfPendingNotifications";
+		internal static const afesdk_setUseDelegate : String = "afesdk_setUseDelegate";
+		
+		// Appsfire Ad SDK
 		internal static const afadsdk_areAdsLoaded : String = "afadsdk_areAdsLoaded";
 		internal static const afadsdk_setUseInAppDownloadWhenPossible : String = "afadsdk_setUseInAppDownloadWhenPossible";
 		internal static const afadsdk_setDebugModeEnabled : String = "afadsdk_setDebugModeEnabled";

@@ -8,7 +8,7 @@ package com.appsfire.AppsfireANE {
 	public class Appsfire extends EventDispatcher {
 		
 		// --------------------------------------------------------------------------------------//
-		// 									   PUBLIC API										 //
+		// PUBLIC API																			 //
 		// --------------------------------------------------------------------------------------//
 		
 		// To enable logs, set this variable to `true`.
@@ -41,43 +41,21 @@ package com.appsfire.AppsfireANE {
 		}
 		
 		// --------------------------------------------------------------------------------------//
-		// 									   Appsfire SDK										 //
+		// Appsfire SDK											                                 //
 		// --------------------------------------------------------------------------------------//
 		
-		public function afsdk_connectWithAPIKey(apiKey : String) : Boolean {
+		public function afsdk_connectWithParameters(sdkToken : String, isEngageEnabled : Boolean, isMonetizationEnabled : Boolean, isTrackEnabled : Boolean) : Boolean {
 			if (!isSupported) return false;
 			
-			log("afsdk_connectWithAPIKey");
+			log("afsdk_connectWithParameters");
 			
 			// Type checking.
-			if (!(apiKey is String)) return false;
+			if (!(sdkToken is String)) return false;
+			if (!(isEngageEnabled is Boolean)) return false;
+			if (!(isMonetizationEnabled is Boolean)) return false;
+			if (!(isTrackEnabled is Boolean)) return false;
 			
-			return _context.call(AppsfireMethods.afsdk_connectWithAPIKey, apiKey);
-		}
-		
-		public function afsdk_connectWithAPIKeyAndDelay(apiKey : String, delay : Number = 0) : Boolean {
-			if (!isSupported) return false;
-			
-			log("afsdk_connectiWithAPIKeyAndDelay");
-			
-			// Type checking.
-			if (!(apiKey is String)) return false;
-			if (!(delay is Number)) return false;
-			
-			return _context.call(AppsfireMethods.afsdk_connectWithAPIKeyAndDelay, apiKey, delay);
-		}
-	
-		public function afsdk_setFeatures(isEngageEnabled : Boolean, isMonetizationEnabled : Boolean, isTrackEnabled : Boolean) : void {
-			if (!isSupported) return;
-			
-			log("afsdk_setFeatures");
-			
-			// Type checking.
-			if (!(isEngageEnabled is Boolean)) return;
-			if (!(isMonetizationEnabled is Boolean)) return;
-			if (!(isTrackEnabled is Boolean)) return;
-			
-			_context.call(AppsfireMethods.afsdk_setFeatures, isEngageEnabled, isEngageEnabled, isTrackEnabled);
+			return _context.call(AppsfireMethods.afsdk_connectWithParameters, sdkToken, isEngageEnabled, isMonetizationEnabled, isTrackEnabled);
 		}
 		
 		public function afsdk_isInitialized() : Boolean {
@@ -88,193 +66,149 @@ package com.appsfire.AppsfireANE {
 			return _context.call(AppsfireMethods.afsdk_isInitialized);
 		}
 		
-		public function afsdk_pause() : void {
-			if (!isSupported) return;
+		public function afsdk_versionDescription() : String {
+			if (!isSupported) return null;
 			
-			log("afsdk_pause");
+			log("afsdk_versionDescription");
 			
-			_context.call(AppsfireMethods.afsdk_pause);
+			return _context.call(AppsfireMethods.afsdk_versionDescription) as String;
 		}
 		
-		public function afsdk_resume() : void {
-			if (!isSupported) return;
-			
-			log("afsdk_resume");
-			
-			_context.call(AppsfireMethods.afsdk_resume);
-		}
+		// --------------------------------------------------------------------------------------//
+		// Appsfire Engage SDK																	 //
+		// --------------------------------------------------------------------------------------//
 		
-		public function afsdk_registerPushTokenString(pushToken : String) : void {
+		public function afesdk_registerPushTokenString(pushToken : String) : void {
 			if (!isSupported) return;
 			
-			log("afsdk_registerPushTokenString");
+			log("afesdk_registerPushTokenString");
 			
 			// Type checking.
 			if (!(pushToken is String)) return;
 			
-			_context.call(AppsfireMethods.afsdk_registerPushTokenString, pushToken);
+			_context.call(AppsfireMethods.afesdk_registerPushTokenString, pushToken);
 		}
 		
-		public function afsdk_handleBadgeCountLocally(shouldHandleLocally : Boolean = true) : void {
+		public function afesdk_handleBadgeCountLocally(shouldHandleLocally : Boolean = true) : void {
 			if (!isSupported) return;
 			
-			log("afsdk_handleBadgeCountLocally");
+			log("afesdk_handleBadgeCountLocally");
 			
 			// Type checking.
 			if (!(shouldHandleLocally is Boolean)) return;
 			
-			_context.call(AppsfireMethods.afsdk_handleBadgeCountLocally, shouldHandleLocally);
+			_context.call(AppsfireMethods.afesdk_handleBadgeCountLocally, shouldHandleLocally);
 			
 		}
 		
-		public function afsdk_handleBadgeCountLocallyAndRemotely(shouldHandleRemotelyAndLocally : Boolean = true) : void {
+		public function afesdk_handleBadgeCountLocallyAndRemotely(shouldHandleRemotelyAndLocally : Boolean = true) : void {
 			if (!isSupported) return;
 			
-			log("afsdk_handleBadgeCountLocallyAndRemotely");
+			log("afesdk_handleBadgeCountLocallyAndRemotely");
 			
 			// Type checking.
 			if (!(shouldHandleRemotelyAndLocally is Boolean)) return;
 			
-			_context.call(AppsfireMethods.afsdk_handleBadgeCountLocallyAndRemotely, shouldHandleRemotelyAndLocally);
+			_context.call(AppsfireMethods.afesdk_handleBadgeCountLocallyAndRemotely, shouldHandleRemotelyAndLocally);
 		}
 		
-		public function afsdk_presentPanel(content : String, style : String) : Boolean {
+		public function afesdk_presentPanel(content : String, style : String) : Boolean {
 			if (!isSupported) return false;
 			
-			log("afsdk_presentPanel");
+			log("afesdk_presentPanel");
 			
 			// Type checking.
 			if (!(content is String)) return false;
 			if (!(style is String)) return false;
 			
-			return _context.call(AppsfireMethods.afsdk_presentPanel, content, style);
+			return _context.call(AppsfireMethods.afesdk_presentPanel, content, style);
 		}
 		
-		public function afsdk_dismissPanel() : void {
+		public function afesdk_dismissPanel() : void {
 			if (!isSupported) return;
 			
-			log("afsdk_dismissPanel");
+			log("afesdk_dismissPanel");
 			
-			_context.call(AppsfireMethods.afsdk_dismissPanel);
+			_context.call(AppsfireMethods.afesdk_dismissPanel);
 		}
 		
-		public function afsdk_isDisplayed() : Boolean {
+		public function afesdk_isDisplayed() : Boolean {
 			if (!isSupported) return false;
 			
-			log("afsdk_isDisplayed");
+			log("afesdk_isDisplayed");
 						
-			return _context.call(AppsfireMethods.afsdk_isDisplayed);
+			return _context.call(AppsfireMethods.afesdk_isDisplayed);
 		}
 		
-		public function afsdk_openSDKNotificationID(notificationId : Number) : void {
+		public function afesdk_openSDKNotificationID(notificationId : Number) : void {
 			if (!isSupported) return;
 			
-			log("afsdk_openSDKNotificationID");
+			log("afesdk_openSDKNotificationID");
 			
 			// Type checking.
 			if (!(notificationId is Number)) return;
 			
-			_context.call(AppsfireMethods.afsdk_openSDKNotificationID, notificationId);
+			_context.call(AppsfireMethods.afesdk_openSDKNotificationID, notificationId);
 		}
 		
-		public function afsdk_setColors(backgroundColor : String, textColor : String) : void {
+		public function afesdk_setColors(backgroundColor : String, textColor : String) : void {
 			if (!isSupported) return;
 			
-			log("afsdk_setColors");
+			log("afesdk_setColors");
 			
 			// Type checking.
 			if (!(backgroundColor is String)) return;
 			if (!(textColor is String)) return;
 			
-			_context.call(AppsfireMethods.afsdk_setColors, backgroundColor, textColor);
+			_context.call(AppsfireMethods.afesdk_setColors, backgroundColor, textColor);
 		}
 		
-		public function afsdk_setUserEmail(email : String, isModifiable : Boolean) : Boolean {
+		public function afesdk_setUserEmail(email : String, isModifiable : Boolean) : Boolean {
 			if (!isSupported) return false;
 			
-			log("afsdk_setUserEmail");
+			log("afesdk_setUserEmail");
 			
 			// Type checking.
 			if (!(email is String)) return false;
 			if (!(isModifiable is Boolean)) return false;
 			
-			return _context.call(AppsfireMethods.afsdk_setUserEmail, email, isModifiable);
+			return _context.call(AppsfireMethods.afesdk_setUserEmail, email, isModifiable);
 		}
 		
-		public function afsdk_setShowFeedbackButton(shouldShowFeedbackButton : Boolean = true) : void {
+		public function afesdk_setShowFeedbackButton(shouldShowFeedbackButton : Boolean = true) : void {
 			if (!isSupported) return;
 			
-			log("afsdk_setShowFeedbackButton");
+			log("afesdk_setShowFeedbackButton");
 			
 			// Type checking.
 			if (!(shouldShowFeedbackButton is Boolean)) return;
 			
-			_context.call(AppsfireMethods.afsdk_setShowFeedbackButton, shouldShowFeedbackButton);
+			_context.call(AppsfireMethods.afesdk_setShowFeedbackButton, shouldShowFeedbackButton);
 		}
 		
-		public function afsdk_getAFSDKVersionInfo() : String {
-			if (!isSupported) return null;
-			
-			log("afsdk_getAFSDKVersionInfo");
-			
-			return _context.call(AppsfireMethods.afsdk_getAFSDKVersionInfo) as String;
-		}
-		
-		public function afsdk_numberOfPendingNotifications() : Number {
+		public function afesdk_numberOfPendingNotifications() : Number {
 			if (!isSupported) return 0;
 			
-			log("afsdk_numberOfPendingNotifications");
+			log("afesdk_numberOfPendingNotifications");
 			
-			return _context.call(AppsfireMethods.afsdk_numberOfPendingNotifications) as Number;
+			return _context.call(AppsfireMethods.afesdk_numberOfPendingNotifications) as Number;
 		}
 		
-		public function afsdk_getSessionID() : String {
-			if (!isSupported) return null;
-			
-			log("afsdk_getSessionID");
-			
-			return _context.call(AppsfireMethods.afsdk_getSessionID) as String;
-		}
-		
-		public function afsdk_resetCache() : void {
+		public function afesdk_setUseDelegate(shouldUseDelegate : Boolean) : void {
 			if (!isSupported) return;
 			
-			log("afsdk_resetCache");
-			
-			_context.call(AppsfireMethods.afsdk_resetCache);
-		}
-		
-		public function afsdk_setUseDelegate(shouldUseDelegate : Boolean) : void {
-			if (!isSupported) return;
-			
-			log("afsdk_setUseDelegate");
+			log("afesdk_setUseDelegate");
 			
 			// Type checking.
 			if (!(shouldUseDelegate is Boolean)) return;
 			
-			_context.call(AppsfireMethods.afsdk_setUseDelegate, shouldUseDelegate);
+			_context.call(AppsfireMethods.afesdk_setUseDelegate, shouldUseDelegate);
 		}
 
 		
 		// --------------------------------------------------------------------------------------//
-		// 									 Appsfire Ad SDK    								 //
+		// Appsfire Ad SDK																		 //
 		// --------------------------------------------------------------------------------------//
-		
-		public function afadsdk_prepare() : void {
-			if (!isSupported) return;
-			
-			log("afadsdk_prepare");
-			
-			_context.call(AppsfireMethods.afadsdk_prepare);
-		}
-		
-		public function afadsdk_isInitialized() : Boolean {
-			if (!isSupported) return false;
-			
-			log("afadsdk_isInitialized");
-			
-			return _context.call(AppsfireMethods.afadsdk_isInitialized);
-		}
 		
 		public function afadsdk_areAdsLoaded() : Boolean {
 			if (!isSupported) return false;
@@ -292,7 +226,7 @@ package com.appsfire.AppsfireANE {
 			_context.call(AppsfireMethods.afadsdk_setUseInAppDownloadWhenPossible, shouldUseInAppDownload);			
 		}
 		
-		public function afadsdk_setDebugModeEnabled(isDebugEnabled : Boolean = true) : void {
+		public function afadsdk_setDebugModeEnabled(isDebugEnabled : Boolean = false) : void {
 			if (!isSupported) return;
 			
 			log("afadsdk_setDebugModeEnabled");
@@ -302,21 +236,21 @@ package com.appsfire.AppsfireANE {
 			_context.call(AppsfireMethods.afadsdk_setDebugModeEnabled, isDebugEnabled);
 		}
 		
-		public function afadsdk_requestModalAd(modalType : String, timerCount : Number = 0) : void {
+		public function afadsdk_requestModalAd(modalType : String, shouldTriggerDelegateEvents : Boolean = false) : void {
 			if (!isSupported) return;
 			
 			log("afadsdk_requestModalAd");
 			
 			// Type checking.
 			if (!(modalType is String)) return;
-			if (!(timerCount is Number)) return;
-			_context.call(AppsfireMethods.afadsdk_requestModalAd, modalType, timerCount);
+			if (!(shouldTriggerDelegateEvents is Boolean)) return;
+			_context.call(AppsfireMethods.afadsdk_requestModalAd, modalType, shouldTriggerDelegateEvents);
 		}
 		
 		public function afadsdk_isThereAModalAdAvailable(modalType : String) : Boolean {
 			if (!isSupported) return false;
 			
-			log("afadsdk_requestModalAd");
+			log("afadsdk_isThereAModalAdAvailable");
 			
 			// Type checking.
 			if (!(modalType is String)) return false;
@@ -347,7 +281,7 @@ package com.appsfire.AppsfireANE {
 			return _context.call(AppsfireMethods.afadsdk_isModalAdDisplayed);
 		}
 		
-		public function afadsdk_setUseDelegate(shouldUseDelegate : Boolean = true) : void {
+		public function afadsdk_setUseDelegate(shouldUseDelegate : Boolean = false) : void {
 			if (!isSupported) return;
 			
 			log("afadsdk_setUseDelegate");
@@ -359,7 +293,7 @@ package com.appsfire.AppsfireANE {
 		}
 		
 		// --------------------------------------------------------------------------------------//
-		// 									 	PRIVATE API										 //
+		// PRIVATE API										 									 //
 		// --------------------------------------------------------------------------------------//
 		
 		private static const EXTENSION_ID : String = "com.appsfire.AppsfireANE";
@@ -377,8 +311,8 @@ package com.appsfire.AppsfireANE {
 			
 			// Delegate event
 			else if ([AppsfireEvent.AFSDK_OPEN_NOTIFICATION_DID_FINISH,
-				AppsfireEvent.AFADSDK_ADUNIT_DID_INITIALIZE,
-				AppsfireEvent.AFADSDK_MODAL_AD_IS_READY_FOR_REQUEST,
+				AppsfireEvent.AFADSDK_MODAL_ADS_REFRESHED_AND_AVAILABLE,
+				AppsfireEvent.AFADSDK_MODAL_ADS_REFRESHED_AND_NOT_AVAILABLE,
 				AppsfireEvent.AFADSDK_MODAL_AD_REQUEST_DID_FAIL_WITH_ERROR,
 				AppsfireEvent.AFADSDK_MODAL_AD_WILL_APPEAR,
 				AppsfireEvent.AFADSDK_MODAL_AD_DID_APPEAR,

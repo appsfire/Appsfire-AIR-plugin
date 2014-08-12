@@ -5,7 +5,7 @@ This documentation is a brief introduction to the Appsfire SDK for Adobe Air. We
 **Note**: the Appsfire ANE only supports the iOS platform.
 
 ### Appsfire SDK
-This ANE includes the [**version 2.3.1**](https://github.com/appsfire/Appsfire-iOS-SDK/releases/tag/2.3.1) release of the Appsfire iOS SDK.
+This ANE includes the [**version 2.4.0**](https://github.com/appsfire/Appsfire-iOS-SDK/releases/tag/2.4.0) release of the Appsfire iOS SDK.
 
 ### Requirements
 Appsfire iOS SDK supports **iOS 5.1.1+**.
@@ -42,26 +42,20 @@ private var appsfire:Appsfire;
 appsfire = Appsfire.getInstance();
 ```
 
-To initialize Appsfire, call the `afsdk_connectWithAPIKey` method with your API token.
+To initialize Appsfire, call the `afsdk_connectWithParameters` method with your SDK token.
 This API token can be found in your [Appsfire dashboard](http://dashboard.appsfire.com).
 
 Here is how a typical initialization of the SDK looks like in an application:
 
 ```actionscript
-// Connects with API Key.
-appsfire.afsdk_connectWithAPIKey("YOUR_API_TOKEN");
-
-// Sets the needed features (in this case: Engage + Monetization).
-appsfire.afsdk_setFeatures(true, true, false);
+// Connects with your SDK Token and set the features you need (Engage = false, Monetize = true, Track = false).
+appsfire.afsdk_connectWithParameters("<YOUR_SDK_TOKEN>", false, true, false);
 
 // Enable the debug mode. Should be set to false in production environment.
 appsfire.afadsdk_setDebugModeEnabled(true);
 
-// Use of the Ad SDK delegate. This will allow you to listen to specific events related to advertisement (events are listed below).
+// Use of the SDK delegate. This will allow you to listen to specific events related to advertisement (events are listed below).
 appsfire.afsdk_setUseDelegate(true);
-
-// Tells the SDK to start getting ads.
-appsfire.afadsdk_prepare();
 
 ```
 
@@ -70,43 +64,22 @@ appsfire.afadsdk_prepare();
 
 All the methods listed below are extracted from the `Appsfire.as` class.
 
-```objc
-// Appsfire SDK.
+```actionscript
+/*
+ * Appsfire SDK.
+ */
 
 /*
- *  @brief Set up the Appsfire SDK with your API key.
+ *  @brief Set up the Appsfire SDK with your SDK Token.
  *
- *  @param key Your API key can be found on http://dashboard.appsfire.com
+ *  @param sdkToken Your SDK Token can be found on http://dashboard.appsfire.com
+ *  @param isEngageEnabled Boolean value to specify the use of the Engagement feature.
+ *  @param isMonetizationEnabled Boolean value to specify the use of the Monetization feature.
+ *  @param isTrackEnabled Boolean value to specify the use of the Track feature.
  *
  *  @return `true` if no error was detected, `false` if a problem occurred (likely due to the API key).
  */
-public function afsdk_connectWithAPIKey(apiKey : String) : Boolean;
-
-/*
- *  @brief Set up the Appsfire SDK with your API key after a given time interval
- *
- *  @param key Your API key can be found on http://dashboard.appsfire.com/app/manage
- *  @param delay The Delay in seconds before the SDK should initialize.
- *  This is useful if you want to avoid any processes for some period of time.
- *
- *  @return `true` if no error was detected, `false` if a problem occurred (likely due to the key).
- */
-public function afsdk_connectWithAPIKeyAndDelay(apiKey : String; delay : Number = 0) : Boolean;
-
-/*
- *  @brief Define the features you want to use in Appsfire SDK.
- *
- *  @note Defining this property will allow us to avoid unnecessary library processes and web-services calls.
- *  For example, if you only use the Monetization SDK (AppsfireAdSDK), then you set `AFSDKFeatureMonetization`.
- *
- *  @warning Don't touch this property if you aren't 100% sure about what you're doing. Check the Appsfire iOS SDK
- *  documentation if you need more information
- *
- *  @param isEngageEnabled if you are Engagement features.
- *  @param isMonetizationEnabled if you are Monetization features.
- *  @param isTrackEnabled if you are Tracking features.
- */
-public function afsdk_setFeatures(isEngageEnabled : Boolean, isMonetizationEnabled : Boolean, isTrackEnabled : Boolean) : void;
+public function afsdk_connectWithParameters(sdkToken : String, isEngageEnabled : Boolean, isMonetizationEnabled : Boolean, isTrackEnabled : Boolean) : Boolean;
 
 /*
  *  @brief Tells you if the SDK is initialized.
@@ -118,14 +91,15 @@ public function afsdk_setFeatures(isEngageEnabled : Boolean, isMonetizationEnabl
 public function afsdk_isInitialized() : Boolean;
 
 /*
- *  @brief Pause any refresh timer.
+ *  @brief Version of the Appsfire SDK.
+ *
+ *  @return A string representing the version of the Appsfire SDK.  
  */
-public function afsdk_pause() : void;
+public function afsdk_versionDescription() : String;
 
 /*
- *  @brief Resume any refresh timer.
+ * Appsfire Engage SDK.
  */
-public function afsdk_resume() : void;
 
 /*
  *  @brief Register the push token for APNS (Apple Push Notification Service).
@@ -141,7 +115,7 @@ public function afsdk_registerPushTokenString(pushToken : String) : void;
  *
  *  @param handleLocally A boolean to determine if the badge count should be handled locally.
  */
-public function afsdk_handleBadgeCountLocally(shouldHandleLocally : Boolean = true) : void;
+public function afesdk_handleBadgeCountLocally(shouldHandleLocally : Boolean = true) : void;
 
 /*
  *  @brief Handle the badge count for this app remotely (Appsfire SDK will update the icon at all times, locally and remotely, even when app is closed).
@@ -152,7 +126,7 @@ public function afsdk_handleBadgeCountLocally(shouldHandleLocally : Boolean = tr
  *
  *  @param handleLocallyAndRemotely Boolean to determine if badge count should be handled locally and remotely.
  */
-public function afsdk_handleBadgeCountLocallyAndRemotely(shouldHandleRemotelyAndLocally : Boolean = true) : void;
+public function afesdk_handleBadgeCountLocallyAndRemotely(shouldHandleRemotelyAndLocally : Boolean = true) : void;
 
 /*
  *  @brief Present the panel for notifications / feedback in a specific style
@@ -164,19 +138,19 @@ public function afsdk_handleBadgeCountLocallyAndRemotely(shouldHandleRemotelyAnd
  *
  *  @return A Boolean telling you if a problem occurred.
  */
-public function afsdk_presentPanel(content : String, style : String) : Boolean;
+public function afesdk_presentPanel(content : String, style : String) : Boolean;
 
 /*
  *  @brief Closes the Notification Wall and/or Feedback Form
  */
-public function afsdk_dismissPanel() : void;
+public function afesdk_dismissPanel() : void;
 
 /*
  *  @brief Tells you if the SDK is displayed.
  *
  *  @return `true` if notifications panel or feedback screen is displayed, `false` if none.
  */
-public function afsdk_isDisplayed() : Boolean;
+public function afesdk_isDisplayed() : Boolean;
 
 /*
  *  @brief Opens the SDK to a specific notification ID.
@@ -185,7 +159,7 @@ public function afsdk_isDisplayed() : Boolean;
  *
  *  @param notificationID The notification ID you would like to open. Generally this ID is sent via a push to your app.
  */
-public function afsdk_openSDKNotificationID(notificationId : Number) : void;
+public function afesdk_openSDKNotificationID(notificationId : Number) : void;
 
 /*
  *  @brief You can customize the colors used in the interface. It'll mainly affect the header and the footer of the panel that you present.
@@ -195,7 +169,7 @@ public function afsdk_openSDKNotificationID(notificationId : Number) : void;
  *  @param backgroundColor The hex string used for the background (ex. "#d7d7d7").
  *  @param textColor The hex string used for the text (over the specific background color, ex. "#a8a8a8").
  */
-public function afsdk_setColors(backgroundColor : String, textColor : String) : void;
+public function afesdk_setColors(backgroundColor : String, textColor : String) : void;
 
 /*
  *  @brief Set user email.
@@ -207,21 +181,14 @@ public function afsdk_setColors(backgroundColor : String, textColor : String) : 
  *
  *  @return `true` if no error was detected, `false` if a problem occurred (likely because email was invalid).
  */
-public function afsdk_setUserEmail(email : String, isModifiable : Boolean) : Boolean;
+public function afesdk_setUserEmail(email : String, isModifiable : Boolean) : Boolean;
 
 /*!
  *  @brief Allow you to display or hide feedback button.
  *
  *  @param show The boolean to tell if feedback button should be displayed or not. Default value is `true`.
  */
-public function afsdk_setShowFeedbackButton(shouldShowFeedbackButton : Boolean = true) : void;
-
-/*
- *  @brief Get SDK version and build number (for developer purposes only).
- *
- *  @return Return a string with SDK version and build number.
- */
-public function afsdk_getAFSDKVersionInfo() : String;
+public function afesdk_setShowFeedbackButton(shouldShowFeedbackButton : Boolean = true) : void;
 
 /*
  *  @brief Returns the number of unread notifications that require attention.
@@ -229,50 +196,18 @@ public function afsdk_getAFSDKVersionInfo() : String;
  *  @return Return an integer that represent the number of unread notifications.
  *  If SDK isn't initialized, this number will be 0.
  */
-public function afsdk_numberOfPendingNotifications() : Number;
+public function afesdk_numberOfPendingNotifications() : Number;
 
 /*
- *  @brief Returns an SDK sessionID.
- *
- *  @return Return a string that represents the session.
- */
-public function afsdk_getSessionID() : String;
-
-/*
- *  @brief Resets the SDK's cache completely - all user settings will be erased.
- *
- *  @note This includes messages that have been read, icon images, assets, etc. DO NOT USE LIGHTLY! If you're having an issue that only this seems to solve, please contact us immediately : app-support@appsfire.com
- */
-public function afsdk_resetCache();
-
-/*
- *  @brief Activate the firing of events related to the SDK delegate
- *
- *  @note Most of the time Appsfire SDK will alert you for on basic events.
- *  Please refer to the list below of the full list of the events.
+ *  @brief Activate the firing of events related to the Engagement SDK delegate
  *
  *  @param Boolean if you want to activate the events or not.
  */
-public function afsdk_setUseDelegate(shouldUseDelegate : Boolean) : void;
-
-// Appsfire Ad SDK.
+public function afesdk_setUseDelegate(shouldUseDelegate : Boolean) : void;
 
 /*
- *  @brief Green light so the library can prepare itself.
- *
- *  @note If not already done, this method is automatically called at during a modal ad request.
+ * Appsfire Ad SDK.
  */
-public function afadsdk_prepare() : void;
-
-/*
- *  @brief Ask if Ad SDK is initialized
- *
- *  @note There are various checks like waiting for the Appsfire SDK initialization, internet connection ...
- *  Usually the library is quickly initialized ( < 1s ).
- *
- *  @return `true` if the library is initialized, `false` if the library isn't yet.
- */
-public function afadsdk_isInitialized() : Boolean;
 
 /*
  *  @brief Ask if ads are loaded from the web service
@@ -301,7 +236,7 @@ public function afadsdk_setUseInAppDownloadWhenPossible(shouldUseInAppDownload :
  *
  *  @param use A boolean to specify if the debug mode should be enabled.
  */
-public function afadsdk_setDebugModeEnabled(isDebugEnabled : Boolean = true) : void;
+public function afadsdk_setDebugModeEnabled(isDebugEnabled : Boolean = false) : void;
 
 /*
  *  @brief Request a modal ad.
@@ -310,9 +245,9 @@ public function afadsdk_setDebugModeEnabled(isDebugEnabled : Boolean = true) : v
  *  You cannot request two ad modals at the same time. In the case where you already have a modal request in the queue, the previous one will be canceled.
  *
  *  @param modalType The kind of modal you want to request (AFAdSDKModalTypeSushi or AFAdSDKModalTypeUraMaki).
- *  @param timerCount the number of seconds used for the timer. if `0` no timer is used.
+ *  @param shouldTriggerDelegateEvents Boolean value wether events should be triggered when showing the modal (interstitial). `false` by default.
  */
-public function afadsdk_requestModalAd(modalType : String, timerCount : Number = 0) : void;
+public function afadsdk_requestModalAd(modalType : String, shouldTriggerDelegateEvents : Boolean = false) : void;
 
 /*
  *  @brief Ask if ads are loaded and if there is at least one modal ad available.
@@ -359,7 +294,7 @@ public function afadsdk_isModalAdDisplayed() : Boolean;
  *
  *  @param Boolean if you want to activate the events or not.
  */
-public function afadsdk_setUseDelegate(shouldUseDelegate : Boolean = true) : void;
+public function afadsdk_setUseDelegate(shouldUseDelegate : Boolean = false) : void;
 
 ```
 
@@ -368,11 +303,12 @@ public function afadsdk_setUseDelegate(shouldUseDelegate : Boolean = true) : voi
 Appsfire fires a number of events upon activation of the delegate methods `afsdk_setUseDelegate` and `afadsdk_setUseDelegate`.
 
 Here is an example of how you would listen to them:
-```actionscript
-appsfire.addEventListener(AppsfireEvent.AFADSDK_MODAL_AD_DID_APPEAR, onModalAdDidAppear);
 
-function onModalAdDidAppear( event:AppsfireEvent ):void {
-  trace("Modal Ad Did Appear!");
+```actionscript
+appsfire.addEventListener(AppsfireEvent.AFADSDK_MODAL_AD_WILL_APPEAR, onModalAdWillAppear);
+
+function onModalAdWillAppear( event:AppsfireEvent ):void {
+  trace("Modal Ad Will Appear!");
 }
 ```
 
@@ -382,11 +318,11 @@ Here is the complete list of you can listen to:
 // Fired when opening a specific notification.
 public static const AFSDK_OPEN_NOTIFICATION_DID_FINISH : String;
 
-// Fired when the Ad Unit did initialize.
-public static const AFADSDK_ADUNIT_DID_INITIALIZE : String;
+// Fired when the SDK got a response from the web service and ads are ready to be displayed.
+public static const AFADSDK_MODAL_ADS_REFRESHED_AND_AVAILABLE : String;
 
-// Fired when the SDK is ready to show modal ads.
-public static const AFADSDK_MODAL_AD_IS_READY_FOR_REQUEST : String;
+// Fired when the SDK got a response from the web service and there are no ads.
+public static const AFADSDK_MODAL_ADS_REFRESHED_AND_NOT_AVAILABLE : String;
 
 // Fired when an the SDK couldn't show a modal ad.
 public static const AFADSDK_MODAL_AD_REQUEST_DID_FAIL_WITH_ERROR : String;

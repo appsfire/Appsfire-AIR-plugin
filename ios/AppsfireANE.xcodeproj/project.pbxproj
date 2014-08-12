@@ -19,9 +19,9 @@
 		7B66934718E1CA0900EAD73B /* AppsfireANE.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B66934618E1CA0900EAD73B /* AppsfireANE.m */; };
 		7B66936818E1CDC500EAD73B /* AFANEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B66936718E1CDC500EAD73B /* AFANEUtils.m */; };
 		7B7D720B18FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D720A18FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.m */; };
-		7B8D570118EC3C6A00A702FB /* libAppsfireSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B9ADA2D18E2E8C7008028E4 /* libAppsfireSDK.a */; };
-		7B98408E1901498E00B1FEBC /* AppsfireSDKDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B98408D1901498E00B1FEBC /* AppsfireSDKDelegate.m */; };
-		7BC810EF18FED5D500A74BC3 /* AppsfireAdTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC810EE18FED5D500A74BC3 /* AppsfireAdTimerView.m */; };
+		7B98408E1901498E00B1FEBC /* AppsfireEngageSDKDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B98408D1901498E00B1FEBC /* AppsfireEngageSDKDelegate.m */; };
+		7BA6B855199900AF00B8DDBA /* libAppsfireSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA6B84E199900AF00B8DDBA /* libAppsfireSDK.a */; };
+		7BA6B8581999134900B8DDBA /* AppsfireAdSDKModalDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA6B8571999134900B8DDBA /* AppsfireAdSDKModalDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,24 +51,29 @@
 		7B66934618E1CA0900EAD73B /* AppsfireANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppsfireANE.m; sourceTree = "<group>"; };
 		7B66934D18E1CA0900EAD73B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		7B66935018E1CA0900EAD73B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		7B66935718E1CA0900EAD73B /* AppsfireANETests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppsfireANETests-Info.plist"; sourceTree = "<group>"; };
-		7B66935918E1CA0900EAD73B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7B66935B18E1CA0900EAD73B /* AppsfireANETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppsfireANETests.m; sourceTree = "<group>"; };
 		7B66936518E1CA8400EAD73B /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
 		7B66936618E1CDC500EAD73B /* AFANEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFANEUtils.h; sourceTree = "<group>"; };
 		7B66936718E1CDC500EAD73B /* AFANEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFANEUtils.m; sourceTree = "<group>"; };
 		7B7D720918FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireAdSDKDelegate.h; sourceTree = "<group>"; };
 		7B7D720A18FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsfireAdSDKDelegate.m; sourceTree = "<group>"; };
-		7B7D720C19001D5A004EB0B5 /* AppsfireSDK+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppsfireSDK+Additions.h"; sourceTree = "<group>"; };
 		7B93CC7D18E496A900EAA154 /* AppsfireANE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireANE.h; sourceTree = "<group>"; };
-		7B98408C1901498E00B1FEBC /* AppsfireSDKDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireSDKDelegate.h; sourceTree = "<group>"; };
-		7B98408D1901498E00B1FEBC /* AppsfireSDKDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsfireSDKDelegate.m; sourceTree = "<group>"; };
-		7B9ADA2A18E2E8C7008028E4 /* AppsfireAdSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireAdSDK.h; sourceTree = "<group>"; };
-		7B9ADA2B18E2E8C7008028E4 /* AppsfireSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireSDK.h; sourceTree = "<group>"; };
-		7B9ADA2C18E2E8C7008028E4 /* AppsfireSDKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireSDKConstants.h; sourceTree = "<group>"; };
-		7B9ADA2D18E2E8C7008028E4 /* libAppsfireSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppsfireSDK.a; sourceTree = "<group>"; };
-		7BC810ED18FED5D500A74BC3 /* AppsfireAdTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireAdTimerView.h; sourceTree = "<group>"; };
-		7BC810EE18FED5D500A74BC3 /* AppsfireAdTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsfireAdTimerView.m; sourceTree = "<group>"; };
+		7B98408C1901498E00B1FEBC /* AppsfireEngageSDKDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireEngageSDKDelegate.h; sourceTree = "<group>"; };
+		7B98408D1901498E00B1FEBC /* AppsfireEngageSDKDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsfireEngageSDKDelegate.m; sourceTree = "<group>"; };
+		7BA6B846199900AF00B8DDBA /* AppsfireAdSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireAdSDK.h; sourceTree = "<group>"; };
+		7BA6B847199900AF00B8DDBA /* AppsfireEngageSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireEngageSDK.h; sourceTree = "<group>"; };
+		7BA6B848199900AF00B8DDBA /* AppsfireSDK+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppsfireSDK+Additions.h"; sourceTree = "<group>"; };
+		7BA6B849199900AF00B8DDBA /* AppsfireSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireSDK.h; sourceTree = "<group>"; };
+		7BA6B84A199900AF00B8DDBA /* AppsfireSDKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireSDKConstants.h; sourceTree = "<group>"; };
+		7BA6B84C199900AF00B8DDBA /* AFAdSDKIAP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAdSDKIAP.h; sourceTree = "<group>"; };
+		7BA6B84D199900AF00B8DDBA /* AFAdSDKIAPProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAdSDKIAPProperty.h; sourceTree = "<group>"; };
+		7BA6B84E199900AF00B8DDBA /* libAppsfireSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAppsfireSDK.a; sourceTree = "<group>"; };
+		7BA6B850199900AF00B8DDBA /* AFAdSDKAdBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAdSDKAdBadgeView.h; sourceTree = "<group>"; };
+		7BA6B851199900AF00B8DDBA /* AFAdSDKSashimiExtendedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAdSDKSashimiExtendedView.h; sourceTree = "<group>"; };
+		7BA6B852199900AF00B8DDBA /* AFAdSDKSashimiMinimalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAdSDKSashimiMinimalView.h; sourceTree = "<group>"; };
+		7BA6B853199900AF00B8DDBA /* AFAdSDKSashimiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAdSDKSashimiView.h; sourceTree = "<group>"; };
+		7BA6B854199900AF00B8DDBA /* AFAdSDKUdonNoodleControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAdSDKUdonNoodleControl.h; sourceTree = "<group>"; };
+		7BA6B8561999134900B8DDBA /* AppsfireAdSDKModalDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsfireAdSDKModalDelegate.h; sourceTree = "<group>"; };
+		7BA6B8571999134900B8DDBA /* AppsfireAdSDKModalDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsfireAdSDKModalDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +85,12 @@
 				7B63C06918EDA0E300742F0C /* Security.framework in Frameworks */,
 				7B63C06818EDA0DE00742F0C /* UIKit.framework in Frameworks */,
 				7B63C06718EDA0D400742F0C /* Foundation.framework in Frameworks */,
+				7BA6B855199900AF00B8DDBA /* libAppsfireSDK.a in Frameworks */,
 				7B63C06618EDA0CE00742F0C /* AdSupport.framework in Frameworks */,
 				7B63C06518EDA0C400742F0C /* QuartzCore.framework in Frameworks */,
 				7B63C06318EDA0AE00742F0C /* StoreKit.framework in Frameworks */,
 				7B63C06418EDA0B700742F0C /* SystemConfiguration.framework in Frameworks */,
 				7B63C06218EDA0A700742F0C /* Accelerate.framework in Frameworks */,
-				7B8D570118EC3C6A00A702FB /* libAppsfireSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				7B66934118E1CA0900EAD73B /* AppsfireANE */,
-				7B66935518E1CA0900EAD73B /* AppsfireANETests */,
 				7B66933E18E1CA0900EAD73B /* Frameworks */,
 				7B66933D18E1CA0900EAD73B /* Products */,
 			);
@@ -131,15 +135,12 @@
 		7B66934118E1CA0900EAD73B /* AppsfireANE */ = {
 			isa = PBXGroup;
 			children = (
-				7B66936618E1CDC500EAD73B /* AFANEUtils.h */,
-				7B66936718E1CDC500EAD73B /* AFANEUtils.m */,
-				7B7D720918FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.h */,
-				7B7D720A18FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.m */,
 				7B93CC7D18E496A900EAA154 /* AppsfireANE.h */,
 				7B66934618E1CA0900EAD73B /* AppsfireANE.m */,
-				7B98408C1901498E00B1FEBC /* AppsfireSDKDelegate.h */,
-				7B98408D1901498E00B1FEBC /* AppsfireSDKDelegate.m */,
+				7B66936618E1CDC500EAD73B /* AFANEUtils.h */,
+				7B66936718E1CDC500EAD73B /* AFANEUtils.m */,
 				7B66936518E1CA8400EAD73B /* FlashRuntimeExtensions.h */,
+				7BA6B8591999135200B8DDBA /* Delegates */,
 				7B66934218E1CA0900EAD73B /* Supporting Files */,
 				7B9ADA2818E2E8C7008028E4 /* Vendor */,
 			);
@@ -154,52 +155,61 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7B66935518E1CA0900EAD73B /* AppsfireANETests */ = {
-			isa = PBXGroup;
-			children = (
-				7B66935B18E1CA0900EAD73B /* AppsfireANETests.m */,
-				7B66935618E1CA0900EAD73B /* Supporting Files */,
-			);
-			path = AppsfireANETests;
-			sourceTree = "<group>";
-		};
-		7B66935618E1CA0900EAD73B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				7B66935718E1CA0900EAD73B /* AppsfireANETests-Info.plist */,
-				7B66935818E1CA0900EAD73B /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		7B9ADA2818E2E8C7008028E4 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				7BC810EC18FED5D500A74BC3 /* AppsfireAdTimerView */,
-				7B9ADA2918E2E8C7008028E4 /* AppsfireSDK */,
+				7BA6B845199900AF00B8DDBA /* appsfire-sdk */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
 		};
-		7B9ADA2918E2E8C7008028E4 /* AppsfireSDK */ = {
+		7BA6B845199900AF00B8DDBA /* appsfire-sdk */ = {
 			isa = PBXGroup;
 			children = (
-				7B9ADA2A18E2E8C7008028E4 /* AppsfireAdSDK.h */,
-				7B7D720C19001D5A004EB0B5 /* AppsfireSDK+Additions.h */,
-				7B9ADA2B18E2E8C7008028E4 /* AppsfireSDK.h */,
-				7B9ADA2C18E2E8C7008028E4 /* AppsfireSDKConstants.h */,
-				7B9ADA2D18E2E8C7008028E4 /* libAppsfireSDK.a */,
+				7BA6B84E199900AF00B8DDBA /* libAppsfireSDK.a */,
+				7BA6B849199900AF00B8DDBA /* AppsfireSDK.h */,
+				7BA6B846199900AF00B8DDBA /* AppsfireAdSDK.h */,
+				7BA6B847199900AF00B8DDBA /* AppsfireEngageSDK.h */,
+				7BA6B848199900AF00B8DDBA /* AppsfireSDK+Additions.h */,
+				7BA6B84A199900AF00B8DDBA /* AppsfireSDKConstants.h */,
+				7BA6B84B199900AF00B8DDBA /* iap */,
+				7BA6B84F199900AF00B8DDBA /* sashimi */,
 			);
-			path = AppsfireSDK;
+			path = "appsfire-sdk";
 			sourceTree = "<group>";
 		};
-		7BC810EC18FED5D500A74BC3 /* AppsfireAdTimerView */ = {
+		7BA6B84B199900AF00B8DDBA /* iap */ = {
 			isa = PBXGroup;
 			children = (
-				7BC810ED18FED5D500A74BC3 /* AppsfireAdTimerView.h */,
-				7BC810EE18FED5D500A74BC3 /* AppsfireAdTimerView.m */,
+				7BA6B84C199900AF00B8DDBA /* AFAdSDKIAP.h */,
+				7BA6B84D199900AF00B8DDBA /* AFAdSDKIAPProperty.h */,
 			);
-			path = AppsfireAdTimerView;
+			path = iap;
+			sourceTree = "<group>";
+		};
+		7BA6B84F199900AF00B8DDBA /* sashimi */ = {
+			isa = PBXGroup;
+			children = (
+				7BA6B850199900AF00B8DDBA /* AFAdSDKAdBadgeView.h */,
+				7BA6B851199900AF00B8DDBA /* AFAdSDKSashimiExtendedView.h */,
+				7BA6B852199900AF00B8DDBA /* AFAdSDKSashimiMinimalView.h */,
+				7BA6B853199900AF00B8DDBA /* AFAdSDKSashimiView.h */,
+				7BA6B854199900AF00B8DDBA /* AFAdSDKUdonNoodleControl.h */,
+			);
+			path = sashimi;
+			sourceTree = "<group>";
+		};
+		7BA6B8591999135200B8DDBA /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				7B7D720918FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.h */,
+				7B7D720A18FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.m */,
+				7B98408C1901498E00B1FEBC /* AppsfireEngageSDKDelegate.h */,
+				7B98408D1901498E00B1FEBC /* AppsfireEngageSDKDelegate.m */,
+				7BA6B8561999134900B8DDBA /* AppsfireAdSDKModalDelegate.h */,
+				7BA6B8571999134900B8DDBA /* AppsfireAdSDKModalDelegate.m */,
+			);
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,25 +282,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B66934718E1CA0900EAD73B /* AppsfireANE.m in Sources */,
-				7B98408E1901498E00B1FEBC /* AppsfireSDKDelegate.m in Sources */,
+				7BA6B8581999134900B8DDBA /* AppsfireAdSDKModalDelegate.m in Sources */,
+				7B98408E1901498E00B1FEBC /* AppsfireEngageSDKDelegate.m in Sources */,
 				7B66936818E1CDC500EAD73B /* AFANEUtils.m in Sources */,
-				7BC810EF18FED5D500A74BC3 /* AppsfireAdTimerView.m in Sources */,
 				7B7D720B18FFD3A5004EB0B5 /* AppsfireAdSDKDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		7B66935818E1CA0900EAD73B /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7B66935918E1CA0900EAD73B /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7B66935D18E1CA0900EAD73B /* Debug */ = {
@@ -374,6 +373,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppsfireANE/Vendor/AppsfireSDK",
+					"$(PROJECT_DIR)/AppsfireANE/Vendor/appsfire-sdk",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
@@ -392,6 +392,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppsfireANE/Vendor/AppsfireSDK",
+					"$(PROJECT_DIR)/AppsfireANE/Vendor/appsfire-sdk",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";

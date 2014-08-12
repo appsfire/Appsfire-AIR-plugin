@@ -9,43 +9,34 @@
 #import "AppsfireANE.h"
 #import "AppsfireSDK.h"
 #import "AppsfireAdSDK.h"
+#import "AppsfireEngageSDK.h"
 #import "AppsfireSDK+Additions.h"
-#import "AppsfireAdTimerView.h"
-#import "AppsfireSDKDelegate.h"
+
+// Delegates
 #import "AppsfireAdSDKDelegate.h"
+#import "AppsfireEngageSDKDelegate.h"
+#import "AppsfireAdSDKModalDelegate.h"
 
 #pragma mark - C Interface (Appsfire SDK)
 
 static FREContext context;
 static AppsfireAdSDKDelegate *appsfireAdSDKDelegate;
-static AppsfireSDKDelegate *appsfireSDKDelegate;
+static AppsfireEngageSDKDelegate *appsfireEngageSDKDelegate;
+static AppsfireAdSDKModalDelegate *appsfireAdSDKModalDelegate;
 
-DEFINE_ANE_FUNCTION(afsdk_connectWithAPIKey) {
-    NSString *apiKey = AFANE_FREObjectToNSString(argv[0]);
-    BOOL isSDKInitialized = [AppsfireSDK connectWithAPIKey:apiKey];
-    return AFANE_BOOLToFREObject(isSDKInitialized);
-}
-
-DEFINE_ANE_FUNCTION(afsdk_connectWithAPIKeyAndDelay) {
-    NSString *apiKey = AFANE_FREObjectToNSString(argv[0]);
+DEFINE_ANE_FUNCTION(afsdk_connectWithParameters) {
     
-    // Getting the delay value.
-    double delay;
-    FREGetObjectAsDouble(argv[1], &delay);
+    // Getting the SDK Token.
+    NSString *sdkToken = AFANE_FREObjectToNSString(argv[0]);
     
-    // Doing the init.
-    BOOL isSDKInitialized = [AppsfireSDK connectWithAPIKey:apiKey afterDelay:delay];
-    return AFANE_BOOLToFREObject(isSDKInitialized);
-}
-
-DEFINE_ANE_FUNCTION(afsdk_setFeatures) {
+    // Getting the features.
+    BOOL isEngageEnabled = AFANE_FREObjectToBoolean(argv[1]);
+    BOOL isMonetizationEnabled = AFANE_FREObjectToBoolean(argv[2]);
+    BOOL isTrackEnabled = AFANE_FREObjectToBoolean(argv[3]);
     
-    BOOL isEngageEnabled = AFANE_FREObjectToBoolean(argv[0]);
-    BOOL isMonetizationEnabled = AFANE_FREObjectToBoolean(argv[1]);
-    BOOL isTrackEnabled = AFANE_FREObjectToBoolean(argv[2]);
+    // Building our feature bitmask.
+    AFSDKFeature features = (AFSDKFeatureEngage|AFSDKFeatureMonetization|AFSDKFeatureTrack);
     
-    // Building our bitmask.
-    AFSDKFeature features;
     if (!isEngageEnabled) {
         features ^= AFSDKFeatureEngage;
     }
@@ -58,44 +49,42 @@ DEFINE_ANE_FUNCTION(afsdk_setFeatures) {
         features ^= AFSDKFeatureTrack;
     }
     
-    [AppsfireSDK setFeatures:features];
+    NSError *error = [AppsfireSDK connectWithSDKToken:sdkToken features:features parameters:nil];
     
-    return nil;
+    // Return a boolean value if there are no error.
+    return AFANE_BOOLToFREObject(!error);
 }
 
 DEFINE_ANE_FUNCTION(afsdk_isInitialized) {
     return AFANE_BOOLToFREObject([AppsfireSDK isInitialized]);
 }
 
-DEFINE_ANE_FUNCTION(afsdk_pause) {
-    [AppsfireSDK pause];
-    return nil;
+DEFINE_ANE_FUNCTION(afsdk_versionDescription) {
+    NSString *versionDescription = [AppsfireSDK versionDescription];
+    return AFANE_NSStringToFREObject(versionDescription);
 }
 
-DEFINE_ANE_FUNCTION(afsdk_resume) {
-    [AppsfireSDK resume];
-    return nil;
-}
+#pragma mark - C Interface (Appsfire Engage SDK)
 
-DEFINE_ANE_FUNCTION(afsdk_registerPushTokenString) {
+DEFINE_ANE_FUNCTION(afesdk_registerPushTokenString) {
     NSString *pushToken = AFANE_FREObjectToNSString(argv[0]);
     [AppsfireSDK registerPushTokenString:pushToken];
     return nil;
 }
 
-DEFINE_ANE_FUNCTION(afsdk_handleBadgeCountLocally) {
+DEFINE_ANE_FUNCTION(afesdk_handleBadgeCountLocally) {
     BOOL shoudHandleLocally = AFANE_FREObjectToBoolean(argv[0]);
-    [AppsfireSDK handleBadgeCountLocally:shoudHandleLocally];
+    [AppsfireEngageSDK handleBadgeCountLocally:shoudHandleLocally];
     return nil;
 }
 
-DEFINE_ANE_FUNCTION(afsdk_handleBadgeCountLocallyAndRemotely) {
+DEFINE_ANE_FUNCTION(afesdk_handleBadgeCountLocallyAndRemotely) {
     BOOL shouldHandleLocallyAndRemotely = AFANE_FREObjectToBoolean(argv[0]);
-    [AppsfireSDK handleBadgeCountLocallyAndRemotely:shouldHandleLocallyAndRemotely];
+    [AppsfireEngageSDK handleBadgeCountLocallyAndRemotely:shouldHandleLocallyAndRemotely];
     return nil;
 }
 
-DEFINE_ANE_FUNCTION(afsdk_presentPanel) {
+DEFINE_ANE_FUNCTION(afesdk_presentPanel) {
     
     // Content type.
     NSString *contentString = AFANE_FREObjectToNSString(argv[0]);
@@ -139,30 +128,30 @@ DEFINE_ANE_FUNCTION(afsdk_presentPanel) {
         return AFANE_BOOLToFREObject(NO);
     }
     
-    NSError *error = [AppsfireSDK presentPanelForContent:content withStyle:style];
+    NSError *error = [AppsfireEngageSDK presentPanelForContent:content withStyle:style];
     return AFANE_BOOLToFREObject(error == nil);
 }
 
-DEFINE_ANE_FUNCTION(afsdk_dismissPanel) {
-    [AppsfireSDK dismissPanel];
+DEFINE_ANE_FUNCTION(afesdk_dismissPanel) {
+    [AppsfireEngageSDK dismissPanel];
     return nil;
 }
 
-DEFINE_ANE_FUNCTION(afsdk_isDisplayed) {
-    BOOL isDisplayed = [AppsfireSDK isDisplayed];
+DEFINE_ANE_FUNCTION(afesdk_isDisplayed) {
+    BOOL isDisplayed = [AppsfireEngageSDK isDisplayed];
     return AFANE_BOOLToFREObject(isDisplayed);
 }
 
-DEFINE_ANE_FUNCTION(afsdk_openSDKNotificationID) {
+DEFINE_ANE_FUNCTION(afesdk_openSDKNotificationID) {
     // Getting the notification id;
     uint32_t notificationId;
     FREGetObjectAsUint32(argv[0], &notificationId);
     
-    [AppsfireSDK openSDKNotificationID:notificationId];
+    [AppsfireEngageSDK openSDKNotificationID:notificationId];
     return nil;
 }
 
-DEFINE_ANE_FUNCTION(afsdk_setColors) {
+DEFINE_ANE_FUNCTION(afesdk_setColors) {
     NSString *backgroundColorString = AFANE_FREObjectToNSString(argv[0]);
     NSString *textColorString = AFANE_FREObjectToNSString(argv[1]);
     
@@ -173,11 +162,11 @@ DEFINE_ANE_FUNCTION(afsdk_setColors) {
         return nil;
     }
     
-    [AppsfireSDK setBackgroundColor:backgroundColor textColor:textColor];
+    [AppsfireEngageSDK setBackgroundColor:backgroundColor textColor:textColor];
     return nil;
 }
 
-DEFINE_ANE_FUNCTION(afsdk_setUserEmail) {
+DEFINE_ANE_FUNCTION(afesdk_setUserEmail) {
     NSString *email = AFANE_FREObjectToNSString(argv[0]);
     BOOL isModifiable = AFANE_FREObjectToBoolean(argv[1]);
     
@@ -185,63 +174,39 @@ DEFINE_ANE_FUNCTION(afsdk_setUserEmail) {
         return nil;
     }
     
-    BOOL succeeded = [AppsfireSDK setUserEmail:email isModifiable:isModifiable];
+    BOOL succeeded = [AppsfireEngageSDK setUserEmail:email isModifiable:isModifiable];
     return AFANE_BOOLToFREObject(succeeded);
 }
 
-DEFINE_ANE_FUNCTION(afsdk_setShowFeedbackButton) {
+DEFINE_ANE_FUNCTION(afesdk_setShowFeedbackButton) {
     BOOL shouldShowFeedback = AFANE_FREObjectToBoolean(argv[0]);
-    [AppsfireSDK setShowFeedbackButton:shouldShowFeedback];
+    [AppsfireEngageSDK setShowFeedbackButton:shouldShowFeedback];
     return nil;
 }
 
-DEFINE_ANE_FUNCTION(afsdk_getAFSDKVersionInfo) {
-    NSString *versionInfo = [AppsfireSDK getAFSDKVersionInfo];
-    return AFANE_NSStringToFREObject(versionInfo);
-}
-
-DEFINE_ANE_FUNCTION(afsdk_numberOfPendingNotifications) {
-    uint32_t pendingNotificationCount = (uint32_t)[AppsfireSDK numberOfPendingNotifications];
+DEFINE_ANE_FUNCTION(afesdk_numberOfPendingNotifications) {
+    uint32_t pendingNotificationCount = (uint32_t)[AppsfireEngageSDK numberOfPendingNotifications];
     return AFANE_NSUIntegerToFREObject(pendingNotificationCount);
 }
 
-DEFINE_ANE_FUNCTION(afsdk_getSessionID) {
-    NSString *sessionId = [AppsfireSDK getSessionID];
-    return AFANE_NSStringToFREObject(sessionId);
-}
-
-DEFINE_ANE_FUNCTION(afsdk_resetCache) {
-    [AppsfireSDK resetCache];
-    return nil;
-}
-
-DEFINE_ANE_FUNCTION(afsdk_setUseDelegate) {
+DEFINE_ANE_FUNCTION(afesdk_setUseDelegate) {
+    
+    appsfireEngageSDKDelegate = nil;
     BOOL shouldUseDelegate = AFANE_FREObjectToBoolean(argv[0]);
     
-    appsfireSDKDelegate = nil;
-    
     if (shouldUseDelegate) {
-        appsfireSDKDelegate = [[AppsfireSDKDelegate alloc] initWithContext:context];
+        appsfireEngageSDKDelegate = [[AppsfireEngageSDKDelegate alloc] initWithContext:context];
     }
     
-    [AppsfireSDK setDelegate:appsfireSDKDelegate];
+    [AppsfireEngageSDK setDelegate:appsfireEngageSDKDelegate];
     
     return nil;
 }
 
 #pragma mark - C Interface (Appsfire Ad SDK)
 
-DEFINE_ANE_FUNCTION(afadsdk_prepare) {
-    [AppsfireAdSDK prepare];
-    return nil;
-}
-
-DEFINE_ANE_FUNCTION(afadsdk_isInitialized) {
-    return AFANE_BOOLToFREObject([AppsfireAdSDK isInitialized]);
-}
-
 DEFINE_ANE_FUNCTION(afadsdk_areAdsLoaded) {
-    return AFANE_BOOLToFREObject([AppsfireAdSDK isInitialized]);
+    return AFANE_BOOLToFREObject([AppsfireAdSDK areAdsLoaded]);
 }
 
 DEFINE_ANE_FUNCTION(afadsdk_setUseInAppDownloadWhenPossible) {
@@ -258,6 +223,7 @@ DEFINE_ANE_FUNCTION(afadsdk_setDebugModeEnabled) {
 
 DEFINE_ANE_FUNCTION(afadsdk_requestModalAd) {
     
+    // Getting the requested modal type.
     NSString *modalTypeString = AFANE_FREObjectToNSString(argv[0]);
     if (![modalTypeString respondsToSelector:@selector(isEqualToString:)]) {
         return nil;
@@ -276,27 +242,14 @@ DEFINE_ANE_FUNCTION(afadsdk_requestModalAd) {
         return nil;
     }
     
-    if (!([AppsfireAdSDK isThereAModalAdAvailableForType:modalType] == AFAdSDKAdAvailabilityYes)) {
-        return nil;
+    // Getting the use of the delegate.
+    BOOL shouldUseDelegate = AFANE_FREObjectToBoolean(argv[1]);
+    
+    if (shouldUseDelegate) {
+        appsfireAdSDKModalDelegate = [[AppsfireAdSDKModalDelegate alloc] initWithContext:context];
     }
     
-    // Getting the timer count value.
-    uint32_t timerCount;
-    FREGetObjectAsUint32(argv[1], &timerCount);
-    
-    // Requesting with a timer.
-    if (timerCount != 0) {
-        [[[AppsfireAdTimerView alloc] initWithCountdownStart:timerCount] presentWithCompletion:^(BOOL accepted) {
-            if (accepted) {
-                [AppsfireAdSDK requestModalAd:modalType withController:ROOT_VIEW_CONTROLLER];
-            }
-        }];
-    }
-    
-    // Requesting without timer.
-    else {
-        [AppsfireAdSDK requestModalAd:modalType withController:ROOT_VIEW_CONTROLLER];
-    }
+    [AppsfireAdSDK requestModalAd:modalType withController:ROOT_VIEW_CONTROLLER withDelegate:appsfireAdSDKModalDelegate];
     
     return nil;
 }
@@ -340,9 +293,9 @@ DEFINE_ANE_FUNCTION(afadsdk_isModalAdDisplayed) {
 }
 
 DEFINE_ANE_FUNCTION(afadsdk_setUseDelegate) {
-    BOOL shouldUseDelegate = AFANE_FREObjectToBoolean(argv[0]);
-    
+
     appsfireAdSDKDelegate = nil;
+    BOOL shouldUseDelegate = AFANE_FREObjectToBoolean(argv[0]);
     
     if (shouldUseDelegate) {
         appsfireAdSDKDelegate = [[AppsfireAdSDKDelegate alloc] initWithContext:context];
@@ -357,30 +310,27 @@ DEFINE_ANE_FUNCTION(afadsdk_setUseDelegate) {
 
 void AppsfireANEContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet) {
     NSDictionary *functions = @{
-                                @"afsdk_connectWithAPIKey": [NSValue valueWithPointer:&afsdk_connectWithAPIKey],
-                                @"afsdk_connectWithAPIKeyAndDelay" : [NSValue valueWithPointer:&afsdk_connectWithAPIKeyAndDelay],
-                                @"afsdk_setFeatures" : [NSValue valueWithPointer:&afsdk_setFeatures],
-                                @"afsdk_isInitialized" : [NSValue valueWithPointer:&afsdk_isInitialized],
-                                @"afsdk_pause" : [NSValue valueWithPointer:&afsdk_pause],
-                                @"afsdk_resume" : [NSValue valueWithPointer:&afsdk_resume],
-                                @"afsdk_registerPushTokenString" : [NSValue valueWithPointer:&afsdk_registerPushTokenString],
-                                @"afsdk_handleBadgeCountLocally" : [NSValue valueWithPointer:&afsdk_handleBadgeCountLocally],
-                                @"afsdk_handleBadgeCountLocallyAndRemotely" : [NSValue valueWithPointer:&afsdk_handleBadgeCountLocallyAndRemotely],
-                                @"afsdk_presentPanel" : [NSValue valueWithPointer:&afsdk_presentPanel],
-                                @"afsdk_dismissPanel" : [NSValue valueWithPointer:&afsdk_dismissPanel],
-                                @"afsdk_isDisplayed" : [NSValue valueWithPointer:&afsdk_isDisplayed],
-                                @"afsdk_openSDKNotificationID" : [NSValue valueWithPointer:&afsdk_openSDKNotificationID],
-                                @"afsdk_setColors" : [NSValue valueWithPointer:&afsdk_setColors],
-                                @"afsdk_setUserEmail" : [NSValue valueWithPointer:&afsdk_setUserEmail],
-                                @"afsdk_setShowFeedbackButton" : [NSValue valueWithPointer:&afsdk_setShowFeedbackButton],
-                                @"afsdk_getAFSDKVersionInfo" : [NSValue valueWithPointer:&afsdk_getAFSDKVersionInfo],
-                                @"afsdk_numberOfPendingNotifications" : [NSValue valueWithPointer:&afsdk_numberOfPendingNotifications],
-                                @"afsdk_getSessionID" : [NSValue valueWithPointer:&afsdk_getSessionID],
-                                @"afsdk_resetCache" : [NSValue valueWithPointer:&afsdk_resetCache],
-                                @"afsdk_setUseDelegate" : [NSValue valueWithPointer:&afsdk_setUseDelegate],
                                 
-                                @"afadsdk_prepare" : [NSValue valueWithPointer:&afadsdk_prepare],
-                                @"afadsdk_isInitialized" : [NSValue valueWithPointer:&afadsdk_isInitialized],
+                                // Appsfire SDK (Common)
+                                @"afsdk_connectWithParameters": [NSValue valueWithPointer:&afsdk_connectWithParameters],
+                                @"afsdk_isInitialized" : [NSValue valueWithPointer:&afsdk_isInitialized],
+                                @"afsdk_versionDescription" : [NSValue valueWithPointer:&afsdk_versionDescription],
+                                
+                                // Appsfire Engage SDK
+                                @"afesdk_registerPushTokenString" : [NSValue valueWithPointer:&afesdk_registerPushTokenString],
+                                @"afesdk_handleBadgeCountLocally" : [NSValue valueWithPointer:&afesdk_handleBadgeCountLocally],
+                                @"afesdk_handleBadgeCountLocallyAndRemotely" : [NSValue valueWithPointer:&afesdk_handleBadgeCountLocallyAndRemotely],
+                                @"afesdk_presentPanel" : [NSValue valueWithPointer:&afesdk_presentPanel],
+                                @"afesdk_dismissPanel" : [NSValue valueWithPointer:&afesdk_dismissPanel],
+                                @"afesdk_isDisplayed" : [NSValue valueWithPointer:&afesdk_isDisplayed],
+                                @"afesdk_openSDKNotificationID" : [NSValue valueWithPointer:&afesdk_openSDKNotificationID],
+                                @"afesdk_setColors" : [NSValue valueWithPointer:&afesdk_setColors],
+                                @"afesdk_setUserEmail" : [NSValue valueWithPointer:&afesdk_setUserEmail],
+                                @"afesdk_setShowFeedbackButton" : [NSValue valueWithPointer:&afesdk_setShowFeedbackButton],
+                                @"afesdk_numberOfPendingNotifications" : [NSValue valueWithPointer:&afesdk_numberOfPendingNotifications],
+                                @"afesdk_setUseDelegate" : [NSValue valueWithPointer:&afesdk_setUseDelegate],
+                                
+                                // Appsfire Ad SDK
                                 @"afadsdk_areAdsLoaded" : [NSValue valueWithPointer:&afadsdk_areAdsLoaded],
                                 @"afadsdk_setUseInAppDownloadWhenPossible" : [NSValue valueWithPointer:&afadsdk_setUseInAppDownloadWhenPossible],
                                 @"afadsdk_setDebugModeEnabled" : [NSValue valueWithPointer:&afadsdk_setDebugModeEnabled],
@@ -390,6 +340,7 @@ void AppsfireANEContextInitializer(void* extData, const uint8_t* ctxType, FRECon
                                 @"afadsdk_cancelPendingAdModalRequest" : [NSValue valueWithPointer:&afadsdk_cancelPendingAdModalRequest],
                                 @"afadsdk_isModalAdDisplayed" : [NSValue valueWithPointer:&afadsdk_isModalAdDisplayed],
                                 @"afadsdk_setUseDelegate" : [NSValue valueWithPointer:&afadsdk_setUseDelegate],
+                                
                                 };
     
     *numFunctionsToTest = (uint32_t)[functions count];
