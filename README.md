@@ -5,7 +5,7 @@ This documentation is a brief introduction to the Appsfire SDK for Adobe Air. We
 **Note**: the Appsfire ANE only supports the iOS platform.
 
 ### Appsfire SDK
-This ANE includes the [**version 2.4.1**](https://github.com/appsfire/Appsfire-iOS-SDK/releases/tag/2.4.1) release of the Appsfire iOS SDK.
+This ANE includes the [**version 2.5.0**](https://github.com/appsfire/Appsfire-iOS-SDK/releases/tag/2.5.0) release of the Appsfire iOS SDK.
 
 ### Requirements
 Appsfire iOS SDK supports **iOS 5.1.1+**.
@@ -49,7 +49,7 @@ Here is how a typical initialization of the SDK looks like in an application:
 
 ```actionscript
 // Connects with your SDK Token and set the features you need (Engage = false, Monetize = true, Track = false).
-appsfire.afsdk_connectWithParameters("<YOUR_SDK_TOKEN>", false, true, false);
+appsfire.afsdk_connectWithParameters("<YOUR_SDK_TOKEN>", "<YOUR_SECRET_KEY>", false, true, false);
 
 // Enable the debug mode. Should be set to false in production environment.
 appsfire.afadsdk_setDebugModeEnabled(true);
@@ -73,13 +73,14 @@ All the methods listed below are extracted from the `Appsfire.as` class.
  *  @brief Set up the Appsfire SDK with your SDK Token.
  *
  *  @param sdkToken Your SDK Token can be found on http://dashboard.appsfire.com
+ *  @param secretKey Your Secret Key can be found on http://dashboard.appsfire.com
  *  @param isEngageEnabled Boolean value to specify the use of the Engagement feature.
  *  @param isMonetizationEnabled Boolean value to specify the use of the Monetization feature.
  *  @param isTrackEnabled Boolean value to specify the use of the Track feature.
  *
  *  @return `true` if no error was detected, `false` if a problem occurred (likely due to the API key).
  */
-public function afsdk_connectWithParameters(sdkToken : String, isEngageEnabled : Boolean, isMonetizationEnabled : Boolean, isTrackEnabled : Boolean) : Boolean;
+public function afsdk_connectWithParameters(sdkToken : String, secretKey : String, isEngageEnabled : Boolean, isMonetizationEnabled : Boolean, isTrackEnabled : Boolean) : Boolean;
 
 /*
  *  @brief Tells you if the SDK is initialized.

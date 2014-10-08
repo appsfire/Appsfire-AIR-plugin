@@ -29,10 +29,13 @@ DEFINE_ANE_FUNCTION(afsdk_connectWithParameters) {
     // Getting the SDK Token.
     NSString *sdkToken = AFANE_FREObjectToNSString(argv[0]);
     
+    // Getting the Secret Key.
+    NSString *secretKey = AFANE_FREObjectToNSString(argv[1]);
+    
     // Getting the features.
-    BOOL isEngageEnabled = AFANE_FREObjectToBoolean(argv[1]);
-    BOOL isMonetizationEnabled = AFANE_FREObjectToBoolean(argv[2]);
-    BOOL isTrackEnabled = AFANE_FREObjectToBoolean(argv[3]);
+    BOOL isEngageEnabled = AFANE_FREObjectToBoolean(argv[2]);
+    BOOL isMonetizationEnabled = AFANE_FREObjectToBoolean(argv[3]);
+    BOOL isTrackEnabled = AFANE_FREObjectToBoolean(argv[4]);
     
     // Building our feature bitmask.
     AFSDKFeature features = (AFSDKFeatureEngage|AFSDKFeatureMonetization|AFSDKFeatureTrack);
@@ -49,7 +52,7 @@ DEFINE_ANE_FUNCTION(afsdk_connectWithParameters) {
         features ^= AFSDKFeatureTrack;
     }
     
-    NSError *error = [AppsfireSDK connectWithSDKToken:sdkToken features:features parameters:nil];
+    NSError *error = [AppsfireSDK connectWithSDKToken:sdkToken secretKey:secretKey features:features parameters:nil];
     
     // Return a boolean value if there are no error.
     return AFANE_BOOLToFREObject(!error);
