@@ -6,6 +6,7 @@
         <option>-framework Accelerate</option>
         <option>-weak_framework AdSupport</option>
         <option>-framework CoreGraphics</option>
+        <option>-framework CoreText</option>
         <option>-framework Foundation</option>
         <option>-framework QuartzCore</option>
         <option>-framework Security</option>
