@@ -44,7 +44,7 @@ package com.appsfire.AppsfireANE {
 		// Appsfire SDK											                                 //
 		// --------------------------------------------------------------------------------------//
 		
-		public function afsdk_connectWithParameters(sdkToken : String, secretKey : String, isEngageEnabled : Boolean, isMonetizationEnabled : Boolean, isTrackEnabled : Boolean) : Boolean {
+		public function afsdk_connectWithParameters(sdkToken : String, secretKey : String, isEngageEnabled : Boolean, isMonetizationEnabled : Boolean) : Boolean {
 			if (!isSupported) return false;
 			
 			log("afsdk_connectWithParameters");
@@ -54,9 +54,8 @@ package com.appsfire.AppsfireANE {
 			if (!(secretKey is String)) return false;
 			if (!(isEngageEnabled is Boolean)) return false;
 			if (!(isMonetizationEnabled is Boolean)) return false;
-			if (!(isTrackEnabled is Boolean)) return false;
 			
-			return _context.call(AppsfireMethods.afsdk_connectWithParameters, sdkToken, secretKey, isEngageEnabled, isMonetizationEnabled, isTrackEnabled);
+			return _context.call(AppsfireMethods.afsdk_connectWithParameters, sdkToken, secretKey, isEngageEnabled, isMonetizationEnabled);
 		}
 		
 		public function afsdk_isInitialized() : Boolean {

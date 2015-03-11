@@ -44,5 +44,3 @@ void AppsfireANEContextInitializer(void* extData, const uint8_t* ctxType, FRECon
 void AppsfireANEContextFinalizer(FREContext ctx);
 void AppsfireANEInitializer(void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet);
 void AppsfireANEFinalizer(void* extData);
-
-

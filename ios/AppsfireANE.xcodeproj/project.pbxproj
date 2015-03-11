@@ -37,13 +37,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7B21BBC019E5904500252ADF /* AFMedBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMedBannerView.h; sourceTree = "<group>"; };
-		7B21BBC119E5904500252ADF /* AFMedBannerViewCustomEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMedBannerViewCustomEvent.h; sourceTree = "<group>"; };
-		7B21BBC219E5904500252ADF /* AFMedBannerViewCustomEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMedBannerViewCustomEventDelegate.h; sourceTree = "<group>"; };
-		7B21BBC319E5904500252ADF /* AFMedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMedInfo.h; sourceTree = "<group>"; };
-		7B21BBC419E5904500252ADF /* AFMedInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMedInterstitial.h; sourceTree = "<group>"; };
-		7B21BBC519E5904500252ADF /* AFMedInterstitialCustomEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMedInterstitialCustomEvent.h; sourceTree = "<group>"; };
-		7B21BBC619E5904500252ADF /* AFMedInterstitialCustomEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFMedInterstitialCustomEventDelegate.h; sourceTree = "<group>"; };
 		7B246EBE18EAF8D5004876C4 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		7B246EC018EAF8FD004876C4 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		7B246EC218EAF904004876C4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -104,20 +97,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7B21BBBF19E5904500252ADF /* mediation */ = {
-			isa = PBXGroup;
-			children = (
-				7B21BBC019E5904500252ADF /* AFMedBannerView.h */,
-				7B21BBC119E5904500252ADF /* AFMedBannerViewCustomEvent.h */,
-				7B21BBC219E5904500252ADF /* AFMedBannerViewCustomEventDelegate.h */,
-				7B21BBC319E5904500252ADF /* AFMedInfo.h */,
-				7B21BBC419E5904500252ADF /* AFMedInterstitial.h */,
-				7B21BBC519E5904500252ADF /* AFMedInterstitialCustomEvent.h */,
-				7B21BBC619E5904500252ADF /* AFMedInterstitialCustomEventDelegate.h */,
-			);
-			path = mediation;
-			sourceTree = "<group>";
-		};
 		7B66933318E1CA0900EAD73B = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +173,6 @@
 				7BA6B848199900AF00B8DDBA /* AppsfireSDK+Additions.h */,
 				7BA6B84A199900AF00B8DDBA /* AppsfireSDKConstants.h */,
 				7BA6B84B199900AF00B8DDBA /* iap */,
-				7B21BBBF19E5904500252ADF /* mediation */,
 				7BA6B84F199900AF00B8DDBA /* sashimi */,
 			);
 			path = "appsfire-sdk";
@@ -394,7 +372,6 @@
 				GCC_PREFIX_HEADER = "AppsfireANE/AppsfireANE-Prefix.pch";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AppsfireANE/Vendor/AppsfireSDK",
 					"$(PROJECT_DIR)/AppsfireANE/Vendor/appsfire-sdk",
 				);
 				ONLY_ACTIVE_ARCH = NO;
@@ -413,7 +390,6 @@
 				GCC_PREFIX_HEADER = "AppsfireANE/AppsfireANE-Prefix.pch";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AppsfireANE/Vendor/AppsfireSDK",
 					"$(PROJECT_DIR)/AppsfireANE/Vendor/appsfire-sdk",
 				);
 				OTHER_LDFLAGS = "";

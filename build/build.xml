@@ -74,8 +74,8 @@
         </exec>
     	
         <move file="../temp/${name}.ane" todir="../bin"/>
+        <move file="../temp/swc/${name}.swc" todir="../bin"/>
         <delete dir="../temp"/>
     </target>
 	
 </project>
-
